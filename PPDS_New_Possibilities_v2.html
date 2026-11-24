@@ -191,6 +191,8 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 /* Imported AI slides from the PPDS breakout-session deck. */
 .source-slide{background:#fff}
 .source-slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.ivo-live-slide{background:#fff}
+.ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 .source-slide-link{position:absolute;z-index:2;display:block}
 .source-slide-link:focus{outline:4px solid var(--yellow);outline-offset:3px}
 
@@ -215,8 +217,8 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 1 min</b><br/>Open quickly: this is a 50-minute tour from the PPDS data flow to two dashboard demonstrations, Ivo's tools and SPARQL concepts, and David's AI use cases.<br/><br/><b>[Sources]</b> PPDS Day 2026 presentation; PPDS official analytics gateway.</aside>
 </section>
 
-<section class="slide source-slide" data-title="PPDS data flow">
-<img alt="PPDS data flow from source data through the semantic pipeline to data services" class="source-slide-img" src="assets/ivo/data-flow.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="PPDS data flow">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/2" title="Ivo's PPDS data flow slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Start with the architecture: source data enters the semantic pipeline, is deduplicated and validated, and becomes reusable PPDS knowledge graphs and services. This is the context for the dashboards and tools that follow.<br/><br/><b>[Source]</b> Ivo Velitchkov, PPDS Day 2026 deck.</aside>
 </section>
 
@@ -234,8 +236,8 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Use this as the map of the session. Ask which of the four access modes is closest to how the audience works today, then move immediately into the live tools.<br/><br/><b>[Sources]</b> User-provided PPDS Day 2026 deck, slides describing Dashboard, Data Catalogue, Query Service and Graph Explorer.</aside>
 </section>
 
-<section class="slide source-slide" data-title="Data Explorer — one integrated workspace">
-<img alt="PPDS Data Explorer overview showing the four integrated services" class="source-slide-img" src="assets/ivo/data-explorer.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="Data Explorer — one integrated workspace">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/3" title="Ivo's Data Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
@@ -280,32 +282,32 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="page-no">4</div>
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Frame this clearly as work in progress. It requires user login and should not be presented as a finished, publicly available product. Use the external link if the embedded view is blocked.<br/><br/><b>[Sources]</b> PPDS dashboard permalink supplied by the user.</aside>
 </section>
-<section class="slide source-slide" data-title="Ivo — Data Catalogue">
-<img alt="Ivo's Data Catalogue view" class="source-slide-img" src="assets/ivo/data-catalogue.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="Ivo — Data Catalogue">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/4" title="Ivo's Data Catalogue slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Introduce the catalogue as the discovery layer: publishers, datasets, distributions and file formats are visible before anyone starts querying.</aside>
 </section>
-<section class="slide source-slide" data-title="Ivo — Query Service">
-<img alt="Ivo's Query Service view with SPARQL templates" class="source-slide-img" src="assets/ivo/query-templates.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="Ivo — Query Service">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/6" title="Ivo's Query Service templates slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Show the prepared-query route first. The template library gives people a starting point, while the editor keeps the resulting SPARQL visible.</aside>
 </section>
-<section class="slide source-slide" data-title="Ivo — Graph Explorer">
-<img alt="Ivo's Graph Explorer view" class="source-slide-img" src="assets/ivo/graph-explorer.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="Ivo — Graph Explorer">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/5" title="Ivo's Graph Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Use the graph view to move from a notice to related procedures, buyers, suppliers and other linked entities.</aside>
 </section>
-<section class="slide source-slide" data-title="SPARQL editor — a precise question">
-<img alt="SPARQL editor showing a procedure query and result table" class="source-slide-img" src="assets/ivo/query-service.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="SPARQL editor — a precise question">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/7" title="Ivo's SPARQL editor slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>This is the precise-query route: a SPARQL pattern names the concepts and relationships explicitly, then returns inspectable results.</aside>
 </section>
-<section class="slide source-slide" data-title="SPARQL is like assembling Lego blocks">
-<img alt="SPARQL graph patterns assembled like Lego blocks" class="source-slide-img" src="assets/ivo/sparql-lego.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="SPARQL is like assembling Lego blocks">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/8" title="Ivo's SPARQL Lego slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 3 min</b><br/>Explain the mental model: triple patterns connect on shared variables. The chain moves from a role to an organisation, address and country code.</aside>
 </section>
-<section class="slide source-slide" data-title="Query Service user options">
-<img alt="Query Service options: query library, AI and SPARQL learning" class="source-slide-img" src="assets/ivo/query-options.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="Query Service user options">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/9" title="Ivo's Query Service options slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Close the SPARQL section with the three user paths: select from the library, use an agent against the ontology and library, or learn PPDS-focused SPARQL.</aside>
 </section>
-<section class="slide source-slide" data-title="More SPARQL resources">
-<img alt="SPARQL learning and graph-query resources" class="source-slide-img" src="assets/ivo/sparql-resources.png"/>
+<section class="slide source-slide ivo-live-slide" data-title="More SPARQL resources">
+<iframe data-src="https://kvistgaard.github.io/slides/ppds/day-2026/#/10" title="Ivo's SPARQL resources slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 1 min</b><br/>Point people to the general SPARQL wiki and course, then to the ePO graph-pattern and workshop resources.</aside>
 </section>
 
