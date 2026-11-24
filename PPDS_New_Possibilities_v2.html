@@ -8,10 +8,10 @@
 <style>
 :root{--blue:#0356B1;--blue2:#004C9A;--navy:#171747;--ink:#071a42;--muted:#5f6672;--yellow:#FFC400;--paper:#fff;--soft:#F5F7FA;--line:#D8DEE8;--accent:#0D5EF4;--red:#C73744;--green:#159B62;}
 *{box-sizing:border-box}
-html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#111;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#fff;font-family:Arial,Helvetica,sans-serif;color:var(--ink)}
 button,a{font:inherit}
-#viewport{position:fixed;inset:0;display:grid;place-items:center;background:#111}
-#stage{position:relative;width:1600px;height:900px;background:white;transform-origin:center center;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,.5)}
+#viewport{position:fixed;inset:0;display:grid;place-items:center;background:#fff;overflow:hidden}
+#stage{position:absolute;left:50%;top:50%;margin:-450px 0 0 -800px;width:1600px;height:900px;background:white;transform-origin:center center;overflow:hidden;box-shadow:none}
 .slide{position:absolute;inset:0;width:1600px;height:900px;display:none;background:#fff;overflow:hidden}
 .slide.active{display:block}
 .slide.blue{background:var(--blue);color:#fff}
@@ -140,7 +140,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 #help p{font-size:18px}
 .key{display:inline-block;border:1px solid #B8C1CF;border-bottom-width:3px;border-radius:5px;padding:3px 8px;background:#F7F9FC;font-family:monospace;font-size:15px;color:#21324e}
 .hotspot-note{position:absolute;right:0;top:0;background:#EEF4FD;border-left:4px solid var(--blue);padding:9px 12px;font-size:14px;color:#3b4d67}
-@media print{html,body{overflow:visible;background:white}#viewport{position:static;display:block;background:white}#stage{transform:none!important;width:1600px;height:auto;box-shadow:none;overflow:visible}.slide{position:relative;display:block!important;page-break-after:always}#controls,#progress,#notes,#help,#blackout{display:none!important}@page{size:13.333in 7.5in;margin:0}}
+@media print{html,body{overflow:visible;background:white}#viewport{position:static;display:block;background:white}#stage{position:static;margin:0;transform:none!important;width:1600px;height:auto;box-shadow:none;overflow:visible}.slide{position:relative;display:block!important;page-break-after:always}#controls,#progress,#notes,#help,#blackout{display:none!important}@page{size:13.333in 7.5in;margin:0}}
 
 /* v2: presenter notes must never participate in the slide layout */
 .speaker-notes{display:none!important}
@@ -261,8 +261,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="demo-toolbar-actions"><button class="demo-btn" data-open="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/">Open working dashboard ↗</button></div>
 </div>
 <div class="demo-live-shell">
-<div class="demo-embed-error"><div><strong>Working dashboard</strong>This view requires user login. Use <b>Open working dashboard</b> to review the current development version.</div></div>
-<iframe allow="fullscreen; clipboard-read; clipboard-write" data-src="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="Dashboard work in progress — login required"></iframe>
+<div class="demo-embed-error"><div><strong>Open this view in Superset</strong>The supplied working-view link is login-gated and currently redirects to the Superset dashboard list until you sign in. Use <b>Open working dashboard</b>, sign in, then select the working dashboard there.</div></div>
 <div class="demo-live-tag" style="background:#FFF7E0;color:#071a42;border-left-color:var(--yellow)">WORK IN PROGRESS</div>
 <div class="demo-live-hint">Login may be required</div>
 </div>
@@ -418,10 +417,10 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div id="blackout"></div>
 <script>
 const slides=[...document.querySelectorAll('.slide')]; let idx=0;
-const counter=document.getElementById('counter'),progress=document.getElementById('progress'),notes=document.getElementById('notes'),noteText=document.getElementById('noteText');
+const counter=document.getElementById('counter'),progress=document.getElementById('progress'),notes=document.getElementById('notes'),noteText=document.getElementById('noteText'),viewport=document.getElementById('viewport');
 function fit(){const s=document.getElementById('stage');const scale=Math.min(innerWidth/1600,innerHeight/900);s.style.transform=`scale(${scale})`}
 function loadEmbedForSlide(slide){const f=slide?.querySelector('iframe[data-src]');if(f&&!f.src){f.src=f.dataset.src}}
-function show(n){idx=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===idx));counter.textContent=`${idx+1} / ${slides.length}`;progress.style.width=`${(idx+1)/slides.length*100}%`;const sn=slides[idx].querySelector('.speaker-notes');noteText.innerHTML=sn?sn.innerHTML:'No notes.';document.title=`${idx+1}/${slides.length} — ${slides[idx].dataset.title||'PPDS'}`;location.hash=`s${idx+1}`;requestAnimationFrame(()=>loadEmbedForSlide(slides[idx]))}
+function show(n){idx=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===idx));viewport.style.background=slides[idx].classList.contains('blue')?'var(--blue)':'#fff';counter.textContent=`${idx+1} / ${slides.length}`;progress.style.width=`${(idx+1)/slides.length*100}%`;const sn=slides[idx].querySelector('.speaker-notes');noteText.innerHTML=sn?sn.innerHTML:'No notes.';document.title=`${idx+1}/${slides.length} — ${slides[idx].dataset.title||'PPDS'}`;location.hash=`s${idx+1}`;requestAnimationFrame(()=>loadEmbedForSlide(slides[idx]))}
 function next(){show(idx+1)} function prev(){show(idx-1)}
 addEventListener('resize',fit); fit();
 const hash=parseInt((location.hash||'').replace('#s',''),10); if(hash) idx=Math.min(slides.length-1,Math.max(0,hash-1)); show(idx);
