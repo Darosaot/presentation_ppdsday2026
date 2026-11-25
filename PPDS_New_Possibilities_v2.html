@@ -206,6 +206,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .dashboard-full-slide .slide-pad{position:static!important;padding:0!important}
 .dashboard-full-slide .demo-live-shell{position:absolute!important;inset:0!important;margin:0!important;border:0!important;box-shadow:none!important}
 .dashboard-full-slide .demo-live-shell iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important}
+.dashboard-full-slide .dashboard-link-card{display:none!important}
 .dashboard-link-slide{background:#fff}
 .dashboard-link-slide .left-rule,
 .dashboard-link-slide .demo-heading,
@@ -282,7 +283,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
-<section class="slide demo-live-slide dashboard-full-slide dashboard-link-slide" data-title="Clean vehicles dashboard">
+<section class="slide demo-live-slide dashboard-full-slide" data-title="Clean vehicles dashboard">
 <div class="left-rule blue"></div>
 <div class="slide-pad">
 <div class="dashboard-link-card">
@@ -523,7 +524,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div id="progress"></div>
 <div id="controls"><button id="prev" title="Previous">←</button><span id="counter"></span><button id="next" title="Next">→</button><button id="noteBtn" title="Presenter notes">N</button><button id="fullBtn" title="Full screen">F</button><button id="helpBtn" title="Help">?</button></div>
 <div id="notes"><h4>Presenter notes</h4><div id="noteText"></div></div>
-<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The two dashboard slides provide direct links to the PPDS applications. The second link requires login and presents work in progress.</p></div></div>
+<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The clean vehicles dashboard runs inside the presentation. The second dashboard opens directly in Superset and requires login because it is still in development.</p></div></div>
 <div id="blackout"></div>
 <script>
 const slides=[...document.querySelectorAll('.slide:not(.skip-slide)')]; let idx=0;
