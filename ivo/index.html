@@ -27,6 +27,33 @@
 				color: #0356B1;
 				text-align: left;
 			}
+
+			/* The integrated deck has a larger stage than Ivo's original viewport.
+			   Keep the two text-heavy slides inside that stage while retaining
+			   Reveal's original fragment sequence. */
+			.reveal .slides section.query-options-slide .term-list {
+				position: absolute;
+				left: 122px;
+				top: 190px;
+				width: 760px;
+				max-width: 760px;
+				margin: 0;
+			}
+			.reveal .slides section.query-options-slide .term {
+				font-size: 30px;
+				line-height: 1.2;
+			}
+			.reveal .slides section.query-options-slide .gloss {
+				font-size: 22px;
+				line-height: 1.25;
+			}
+			.reveal .slides section.lego-slide > p {
+				max-width: 760px;
+			}
+			.reveal .slides section.lego-slide pre {
+				max-width: 760px;
+				overflow: hidden;
+			}
 		</style>
 		<!-- <link rel="stylesheet" href="../../common/css/black-top.css" /> -->
 
@@ -71,7 +98,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-markdown="slides.md?v=4" data-separator="^---$" data-separator-vertical="^--$" data-separator-notes="^Note:"></section>
+				<section data-markdown="slides.md?v=5" data-separator="^---$" data-separator-vertical="^--$" data-separator-notes="^Note:"></section>
 			</div>
 		</div>
 
