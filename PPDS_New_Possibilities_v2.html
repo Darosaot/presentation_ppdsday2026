@@ -192,6 +192,31 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 /* Imported AI slides from the PPDS breakout-session deck. */
 .source-slide{background:#fff}
 .source-slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.hybrid-ai{background:#fff;font-family:Georgia,"Times New Roman",serif;color:#505050}
+.hybrid-ai .ai-editable{position:absolute;z-index:2}
+.hybrid-ai .ai-page-cover{position:absolute;left:70px;bottom:18px;width:125px;height:78px;background:#fff;z-index:2}
+.hybrid-ai .ai-page{position:absolute;left:94px;bottom:32px;z-index:3;font-size:18px;color:#777}
+.ai15-card{top:109px;width:522px;height:719px;background:#f2f2f2;padding:76px 40px 28px;display:flex;flex-direction:column;justify-content:space-between}
+.ai15-card.one{left:184px}.ai15-card.two{left:745px}
+.ai15-card blockquote{position:relative;margin:0;font-size:28px;line-height:1.3;color:#1f1f1f}
+.ai15-card blockquote::before{content:"“";position:absolute;left:2px;top:-52px;font-size:92px;line-height:1;color:#b6b6b6}
+.ai15-card cite{font-style:normal;border-top:3px solid #242424;padding-top:14px;font-size:17px;line-height:1.35;color:#222}
+.ai15-card cite a{color:#126db0;text-decoration:underline;text-underline-offset:3px}
+.ai16-title{left:140px;top:78px;right:110px;font-size:56px;line-height:1.05;color:var(--blue)}
+.ai16-title-cover{position:absolute;left:110px;top:58px;width:1010px;height:150px;background:#fff;z-index:1}
+.ai16-card{top:254px;width:288px;height:393px;background:#f2f2f2;padding:20px 14px 14px;display:flex;flex-direction:column;gap:16px}
+.ai16-card.c1{left:62px}.ai16-card.c2{left:364px}.ai16-card.c3{left:666px}.ai16-card.c4{left:968px}.ai16-card.c5{left:1270px}
+.ai16-card h3{margin:0;min-height:74px;text-align:center;color:#4d4d4d;font-size:24px;line-height:1.1}
+.ai16-card p{margin:0;padding:20px 16px;background:#fff;color:#505050;font-size:19px;line-height:1.35;text-align:center;flex:1}
+.ai17-cover,.ai18-cover{position:absolute;left:110px;top:0;width:675px;height:900px;background:#fff;z-index:1}
+.ai18-title-cover{position:absolute;left:110px;top:40px;width:900px;height:170px;background:#fff;z-index:1}
+.ai17-title,.ai18-title{left:150px;top:78px;color:var(--blue);font-size:56px;line-height:1.05}
+.ai17-bullets,.ai18-bullets{left:150px;top:278px;width:580px;color:#505050;font-size:34px;line-height:1.35}
+.ai17-bullet,.ai18-bullet{position:relative;padding-left:36px;margin-bottom:44px}
+.ai17-bullet::before,.ai18-bullet::before{content:"•";position:absolute;left:0;top:0;color:var(--blue);font-size:43px;line-height:1}
+.ai17-bullet strong,.ai18-bullet strong{font-weight:700}
+.ai18-bullets{top:270px;width:610px}
+.ai18-bullet{margin-bottom:34px}
 .ivo-live-slide{background:#fff}
 .ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 .dashboard-full-slide{background:#fff}
@@ -487,23 +512,37 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="page-no">14</div>
 <aside class="speaker-notes"><b>Timing: 30 sec</b><br/>Use this transition to make the shift into David's artificial-intelligence section explicit.</aside>
 </section>
-<section class="slide source-slide" data-title="Why semantics matters for AI">
-<img alt="Two Gartner quotations on semantics as the foundation for robust AI systems" class="source-slide-img" src="assets/ai/slide-11-semantics.png"/>
-<a aria-label="Gartner Top Trends in Data and Analytics for 2026" class="source-slide-link" href="https://www.gartner.com/doc/reprints?id=1-2NG2O8OU&amp;ct=260529&amp;st=sb" rel="noopener noreferrer" style="left:220px;top:742px;width:330px;height:34px" target="_blank"></a>
-<a aria-label="Gartner press release on semantics in AI-ready data" class="source-slide-link" href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-says-lack-of-semantics-causes-inaccurate-artificial-intelligence-agents-and-wasted-spending" rel="noopener noreferrer" style="left:778px;top:742px;width:310px;height:34px" target="_blank"></a>
+<section class="slide source-slide hybrid-ai" data-title="Why semantics matters for AI">
+<img alt="Original Gartner quotation slide artwork" class="source-slide-img" src="assets/ai/slide-11-semantics.png"/>
+<div class="ai-editable ai15-card one"><blockquote>Semantics at the core must be adopted as the strategic imperative of the modern D&amp;A operating model, shifting semantics from an afterthought to the critical foundation required for building robust, interoperable, reliable and scalable AI systems.</blockquote><cite><b>Gartner research</b><br/><a href="https://www.gartner.com/doc/reprints?id=1-2NG2O8OU&amp;ct=260529&amp;st=sb" target="_blank" rel="noopener noreferrer">Top Trends in D&amp;A for 2026</a></cite></div>
+<div class="ai-editable ai15-card two"><blockquote>By 2027, organizations that prioritize <b>semantics in AI-ready data</b> will increase their agentic AI accuracy by up to <b>80%</b> and reduce costs by up to <b>60%</b>.</blockquote><cite><b>Gartner prediction</b><br/><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-says-lack-of-semantics-causes-inaccurate-artificial-intelligence-agents-and-wasted-spending" target="_blank" rel="noopener noreferrer">Press release, 11 May 2026</a></cite></div>
+<div class="ai-page-cover"></div><div class="ai-page">15</div>
 <aside class="speaker-notes"><b>Timing: 1.5 min</b><br/>Use the quotations to establish why semantics matters for AI: shared meaning improves reliability and reduces the need for the model to infer the meaning of procurement data.<br/><br/><b>[Sources]</b> Gartner Top Trends in Data and Analytics for 2026; Gartner press release, 11 May 2026; user-provided PPDS breakout-session deck, slide 11.</aside>
 </section>
-<section class="slide source-slide" data-title="Artificial Intelligence in the PPDS">
-<img alt="Five benefits of explicit semantics for artificial intelligence in the PPDS" class="source-slide-img" src="assets/ai/slide-12-ai-semantics.png"/>
+<section class="slide source-slide hybrid-ai" data-title="Artificial Intelligence in the PPDS">
+<img alt="Original PPDS artificial-intelligence benefits slide artwork" class="source-slide-img" src="assets/ai/slide-12-ai-semantics.png"/>
+<div class="ai16-title-cover"></div>
+<h2 class="ai-editable ai16-title">Artificial Intelligence in the PPDS</h2>
+<div class="ai-editable ai16-card c1"><h3>The AI understands what the data means</h3><p>Concepts and their relationships are defined explicitly, so the AI doesn't have to guess what a field or a value means.</p></div>
+<div class="ai-editable ai16-card c2"><h3>Fewer hallucinations</h3><p>Answers come from structured, verified facts rather than the model's general knowledge.</p></div>
+<div class="ai-editable ai16-card c3"><h3>More accurate queries</h3><p>The ontology guides the AI to build correct queries and can automatically reject ones that don't make sense.</p></div>
+<div class="ai-editable ai16-card c4"><h3>It can answer complex questions</h3><p>Explicit links between buyers, procedures, lots and winners let the AI connect information across many records.</p></div>
+<div class="ai-editable ai16-card c5"><h3>Answers can be explained</h3><p>Each answer can be traced back to its source data and the logic behind it, so people can check and trust it.</p></div>
+<div class="ai-page-cover"></div><div class="ai-page">16</div>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Explain how the PPDS ontology gives AI systems explicit concepts and relationships. Connect each benefit to grounded, traceable answers rather than general model knowledge.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 12.</aside>
 </section>
-<section class="slide source-slide" data-title="AI use case — Chatbot">
-<img alt="PPDS chatbot concept that converts natural-language questions into deterministic SPARQL queries" class="source-slide-img" src="assets/ai/slide-13-chatbot.png"/>
-<div class="chatbot-typo-fix" aria-label="Corrected text">Low hallucination:<br/><b>deterministic due to<br/>conversion to SPARQL</b></div>
+<section class="slide source-slide hybrid-ai" data-title="AI use case — Chatbot">
+<img alt="PPDS chatbot dashboard and response artwork" class="source-slide-img" src="assets/ai/slide-13-chatbot.png"/>
+<div class="ai17-cover"></div><h2 class="ai-editable ai17-title">Use case: Chatbot</h2>
+<div class="ai-editable ai17-bullets"><div class="ai17-bullet">Query PPDS data with<br/><strong>natural language</strong></div><div class="ai17-bullet">Low hallucination:<br/>deterministic due to<br/>conversion to SPARQL</div></div>
+<div class="ai-page-cover"></div><div class="ai-page">17</div>
 <aside class="speaker-notes"><b>Timing: 2.5 min</b><br/>Show the chatbot example as a natural-language entry point to PPDS data. Stress that the system converts the question into SPARQL and should expose the query, filters and source data behind the answer.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 13.</aside>
 </section>
-<section class="slide source-slide" data-title="AI use case — Fraud detection">
-<img alt="Fraud-detection example showing a concentration of Spanish contracts immediately below the competition threshold" class="source-slide-img" src="assets/ai/slide-14-fraud-detection.png"/>
+<section class="slide source-slide hybrid-ai" data-title="AI use case — Fraud detection">
+<img alt="Original fraud-detection chart artwork" class="source-slide-img" src="assets/ai/slide-14-fraud-detection.png"/>
+<div class="ai18-cover"></div><div class="ai18-title-cover"></div><h2 class="ai-editable ai18-title">Use case: Fraud detection</h2>
+<div class="ai-editable ai18-bullets"><div class="ai18-bullet">Automatic identification of<br/>suspicious patterns</div><div class="ai18-bullet">Reporting to the MS about<br/>their activity</div><div class="ai18-bullet">E.g., in Spain there is a peak<br/>of contracts just under the<br/>threshold that requires<br/>competition (15K €)</div></div>
+<div class="ai-page-cover"></div><div class="ai-page">18</div>
 <a aria-label="Source article for the Spanish contract-threshold analysis" class="source-slide-link" href="https://civio.es/contratacion/2020/01/29/la-invasion-de-los-contratos-menores-de-14-dot-999-99eu/" rel="noopener noreferrer" style="left:1170px;top:696px;width:170px;height:32px" target="_blank"></a>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use the threshold pattern as an example of anomaly detection that can prompt expert review. A signal supports investigation; it does not establish fraud by itself.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 14; Civio analysis linked in the source slide.</aside>
 </section>
