@@ -191,7 +191,38 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 
 /* Imported AI slides from the PPDS breakout-session deck. */
 .source-slide{background:#fff}
-.source-slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
+.editable-ai{font-family:Arial,Helvetica,sans-serif;background:#fff;color:#071a42}
+.editable-ai .ai-title{position:absolute;left:150px;right:120px;top:78px;color:var(--blue);font-size:56px;line-height:1.05;font-weight:400}
+.editable-ai .ai-rule{position:absolute;left:108px;top:0;width:4px;height:168px;background:var(--yellow)}
+.editable-ai .page-no{bottom:34px;left:72px;transform:none;color:#777}
+.editable-ai .ai-footer-mark{position:absolute;right:70px;bottom:28px;font-size:16px;color:#697589}
+.ai-quote-grid{position:absolute;left:185px;right:185px;top:240px;bottom:115px;display:grid;grid-template-columns:1fr 1fr;gap:42px}
+.ai-quote-card{background:#f2f4f7;padding:30px 34px 24px;display:flex;flex-direction:column;justify-content:space-between}
+.ai-quote-card blockquote{margin:0;font-size:28px;line-height:1.3;color:#202b3d}
+.ai-quote-card strong{font-weight:700}
+.ai-quote-card cite{font-style:normal;font-size:17px;line-height:1.35;color:#526176;border-top:3px solid #202b3d;padding-top:14px}
+.ai-quote-card cite a,.ai-fraud-card a{color:#126db0;text-decoration:underline;text-underline-offset:3px}
+.ai-card-grid{position:absolute;left:74px;right:74px;top:250px;bottom:120px;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+.ai-benefit-card{background:#f2f4f7;padding:20px 14px 14px;display:flex;flex-direction:column;gap:16px}
+.ai-benefit-card h3{margin:0;min-height:74px;text-align:center;color:#46556a;font-size:24px;line-height:1.1}
+.ai-benefit-card p{margin:0;padding:20px 16px;background:#fff;color:#4c596a;font-size:19px;line-height:1.35;text-align:center;flex:1}
+.ai-chat-layout{position:absolute;left:122px;right:110px;top:205px;bottom:82px;display:grid;grid-template-columns:390px 1fr;gap:28px}
+.ai-chat-panel,.ai-chat-answer{border:1px solid #d7e0ec;background:#f5f7fa;padding:22px}
+.ai-chat-panel h3,.ai-chat-answer h3{margin:0 0 14px;color:var(--blue);font-size:25px}
+.ai-chat-panel .question{background:#fff;border-left:4px solid var(--yellow);padding:14px 16px;font-size:20px;line-height:1.3;margin-bottom:20px}
+.ai-filter-list{display:grid;grid-template-columns:1fr 1fr;gap:9px;font-size:16px;color:#46556a}
+.ai-filter-list span{background:#fff;border:1px solid #d7e0ec;padding:8px 9px}
+.ai-chat-answer{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ai-chat-answer .answer-copy{grid-column:1 / -1;background:#fff;padding:18px 20px;font-size:22px;line-height:1.35}
+.ai-chat-answer .answer-stat{background:#fff;padding:18px 20px;font-size:20px;line-height:1.3}
+.ai-chat-answer .answer-stat strong{display:block;color:var(--blue);font-size:38px;line-height:1;margin-bottom:8px}
+.ai-fraud-layout{position:absolute;left:122px;right:110px;top:215px;bottom:92px;display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.ai-fraud-card{border:1px solid #d7e0ec;background:#f5f7fa;padding:24px}
+.ai-fraud-card h3{margin:0 0 18px;color:var(--blue);font-size:27px}
+.ai-fraud-card ul{margin:0;padding-left:22px;font-size:21px;line-height:1.45;color:#45546a}
+.ai-threshold{margin-top:26px;background:#fff;border-left:6px solid var(--yellow);padding:18px 20px;color:#223650;font-size:22px;line-height:1.35}
+.ai-threshold strong{display:block;color:var(--blue);font-size:36px;line-height:1.05;margin-bottom:8px}
+.ai-fraud-note{position:absolute;left:122px;right:110px;bottom:50px;font-size:17px;color:#59677b}
 .ivo-live-slide{background:#fff}
 .ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
 .dashboard-full-slide{background:#fff}
@@ -233,9 +264,6 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .ai-transition-slide h2{font-family:Arial,Helvetica,sans-serif;color:var(--blue);font-size:64px;line-height:1.05;margin:0}
 .ai-transition-slide p{font-family:Arial,Helvetica,sans-serif;color:#4f5560;font-size:34px;margin:22px 0 0}
 .ai-transition-slide .page-no{font-family:Arial,Helvetica,sans-serif;bottom:26px}
-.chatbot-typo-fix{position:absolute;left:130px;top:390px;width:590px;height:260px;background:#fff;font-family:Arial,Helvetica,sans-serif;color:#555;font-size:41px;line-height:1.24;z-index:2;padding:4px 0 0 30px}
-.chatbot-typo-fix::before{display:none}
-.chatbot-typo-fix b{font-weight:400}
 .source-slide-link{position:absolute;z-index:2;display:block}
 .source-slide-link:focus{outline:4px solid var(--yellow);outline-offset:3px}
 
@@ -487,24 +515,41 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="page-no">14</div>
 <aside class="speaker-notes"><b>Timing: 30 sec</b><br/>Use this transition to make the shift into David's artificial-intelligence section explicit.</aside>
 </section>
-<section class="slide source-slide" data-title="Why semantics matters for AI">
-<img alt="Two Gartner quotations on semantics as the foundation for robust AI systems" class="source-slide-img" src="assets/ai/slide-11-semantics.png"/>
-<a aria-label="Gartner Top Trends in Data and Analytics for 2026" class="source-slide-link" href="https://www.gartner.com/doc/reprints?id=1-2NG2O8OU&amp;ct=260529&amp;st=sb" rel="noopener noreferrer" style="left:220px;top:742px;width:330px;height:34px" target="_blank"></a>
-<a aria-label="Gartner press release on semantics in AI-ready data" class="source-slide-link" href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-says-lack-of-semantics-causes-inaccurate-artificial-intelligence-agents-and-wasted-spending" rel="noopener noreferrer" style="left:778px;top:742px;width:310px;height:34px" target="_blank"></a>
+<section class="slide editable-ai" data-title="Why semantics matters for AI">
+<div class="ai-rule"></div><h2 class="ai-title">Semantics as the foundation for reliable AI</h2>
+<div class="ai-quote-grid">
+<div class="ai-quote-card"><blockquote>Semantics at the core must be adopted as the strategic imperative of the modern D&amp;A operating model, shifting semantics from an afterthought to the critical foundation required for building robust, interoperable, reliable and scalable AI systems.</blockquote><cite><b>Gartner research</b><br/><a href="https://www.gartner.com/doc/reprints?id=1-2NG2O8OU&amp;ct=260529&amp;st=sb" target="_blank" rel="noopener noreferrer">Top Trends in D&amp;A for 2026</a></cite></div>
+<div class="ai-quote-card"><blockquote>By 2027, organizations that prioritize <strong>semantics in AI-ready data</strong> will increase their agentic AI accuracy by up to <strong>80%</strong> and reduce costs by up to <strong>60%</strong>.</blockquote><cite><b>Gartner prediction</b><br/><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-says-lack-of-semantics-causes-inaccurate-artificial-intelligence-agents-and-wasted-spending" target="_blank" rel="noopener noreferrer">Press release, 11 May 2026</a></cite></div>
+</div>
+<div class="ai-footer-mark">European Commission</div><div class="page-no">15</div>
 <aside class="speaker-notes"><b>Timing: 1.5 min</b><br/>Use the quotations to establish why semantics matters for AI: shared meaning improves reliability and reduces the need for the model to infer the meaning of procurement data.<br/><br/><b>[Sources]</b> Gartner Top Trends in Data and Analytics for 2026; Gartner press release, 11 May 2026; user-provided PPDS breakout-session deck, slide 11.</aside>
 </section>
-<section class="slide source-slide" data-title="Artificial Intelligence in the PPDS">
-<img alt="Five benefits of explicit semantics for artificial intelligence in the PPDS" class="source-slide-img" src="assets/ai/slide-12-ai-semantics.png"/>
+<section class="slide editable-ai" data-title="Artificial Intelligence in the PPDS">
+<div class="ai-rule"></div><h2 class="ai-title">Artificial Intelligence in the PPDS</h2>
+<div class="ai-card-grid">
+<div class="ai-benefit-card"><h3>The AI understands what the data means</h3><p>Concepts and their relationships are defined explicitly, so the AI does not have to guess what a field or a value means.</p></div>
+<div class="ai-benefit-card"><h3>Fewer hallucinations</h3><p>Answers come from structured, verified facts rather than the model's general knowledge.</p></div>
+<div class="ai-benefit-card"><h3>More accurate queries</h3><p>The ontology guides the AI to build correct queries and can automatically reject ones that do not make sense.</p></div>
+<div class="ai-benefit-card"><h3>It can answer complex questions</h3><p>Explicit links between buyers, procedures, lots and winners let the AI connect information across many records.</p></div>
+<div class="ai-benefit-card"><h3>Answers can be explained</h3><p>Each answer can be traced back to its source data and the logic behind it, so people can check and trust it.</p></div>
+</div>
+<div class="ai-footer-mark">European Commission</div><div class="page-no">16</div>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Explain how the PPDS ontology gives AI systems explicit concepts and relationships. Connect each benefit to grounded, traceable answers rather than general model knowledge.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 12.</aside>
 </section>
-<section class="slide source-slide" data-title="AI use case — Chatbot">
-<img alt="PPDS chatbot concept that converts natural-language questions into deterministic SPARQL queries" class="source-slide-img" src="assets/ai/slide-13-chatbot.png"/>
-<div class="chatbot-typo-fix" aria-label="Corrected text">Low hallucination:<br/><b>deterministic due to<br/>conversion to SPARQL</b></div>
+<section class="slide editable-ai" data-title="AI use case — Chatbot">
+<div class="ai-rule"></div><h2 class="ai-title">Use case: Chatbot</h2>
+<div class="ai-chat-layout">
+<div class="ai-chat-panel"><h3>Query PPDS data with natural language</h3><div class="question">Can you tell me the countries with the highest long-term rate of single bidder in 2021?</div><div class="ai-filter-list"><span>Year</span><span>Country</span><span>NUTS code</span><span>Division into lots</span><span>Procedure type</span><span>Contract nature</span><span>Directive applicable</span><span>Indicator: single bidder</span></div></div>
+<div class="ai-chat-answer"><div class="answer-copy"><b>Low hallucination:</b> deterministic due to conversion to SPARQL</div><div class="answer-stat"><strong>33.2%</strong>Rate of single bidder</div><div class="answer-stat"><strong>4.47M</strong>Procedures considered</div><div class="answer-copy">The highest long-term rate of single-bidder procedures among EU countries in 2021 was seen in Cyprus, Poland and Slovenia. Each answer should expose its filters, query and source data.</div></div>
+</div>
+<div class="ai-footer-mark">European Commission</div><div class="page-no">17</div>
 <aside class="speaker-notes"><b>Timing: 2.5 min</b><br/>Show the chatbot example as a natural-language entry point to PPDS data. Stress that the system converts the question into SPARQL and should expose the query, filters and source data behind the answer.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 13.</aside>
 </section>
-<section class="slide source-slide" data-title="AI use case — Fraud detection">
-<img alt="Fraud-detection example showing a concentration of Spanish contracts immediately below the competition threshold" class="source-slide-img" src="assets/ai/slide-14-fraud-detection.png"/>
-<a aria-label="Source article for the Spanish contract-threshold analysis" class="source-slide-link" href="https://civio.es/contratacion/2020/01/29/la-invasion-de-los-contratos-menores-de-14-dot-999-99eu/" rel="noopener noreferrer" style="left:1170px;top:696px;width:170px;height:32px" target="_blank"></a>
+<section class="slide editable-ai" data-title="AI use case — Fraud detection">
+<div class="ai-rule"></div><h2 class="ai-title">Use case: Fraud detection</h2>
+<div class="ai-fraud-layout"><div class="ai-fraud-card"><h3>What the system can surface</h3><ul><li>Automatic identification of suspicious patterns</li><li>Reporting to Member States about their activity</li><li>Signals that help experts decide where to investigate</li></ul><div class="ai-threshold"><strong>€14,999.99</strong>Example: a concentration of Spanish contracts just below the threshold that requires competition.</div></div><div class="ai-fraud-card"><h3>Illustrative record</h3><p style="font-size:22px;line-height:1.45;color:#45546a;margin:0 0 18px"><b>Jefatura de Intendencia de Asuntos Económicos Oeste</b><br/>Contract value: €14,999.49<br/>Company: ESSILOR ESPAÑA SA</p><div style="height:170px;background:linear-gradient(180deg,#f5f7fa,#fff);border-bottom:3px solid var(--blue);position:relative"><div style="position:absolute;left:8%;right:8%;bottom:42px;border-top:3px solid var(--yellow);transform:rotate(-4deg)"></div><span style="position:absolute;left:8%;bottom:10px;font-size:14px;color:#66758a">2019</span><span style="position:absolute;right:8%;bottom:10px;font-size:14px;color:#66758a">2020</span><span style="position:absolute;left:35%;top:32px;font-size:16px;font-weight:700;color:var(--blue)">review the pattern</span></div></div></div>
+<div class="ai-fraud-note">A model signal supports expert investigation. It does not establish fraud by itself. <a href="https://civio.es/contratacion/2020/01/29/la-invasion-de-los-contratos-menores-de-14-dot-999-99eu/" target="_blank" rel="noopener noreferrer">Source analysis</a></div>
+<div class="ai-footer-mark">European Commission</div><div class="page-no">18</div>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use the threshold pattern as an example of anomaly detection that can prompt expert review. A signal supports investigation; it does not establish fraud by itself.<br/><br/><b>[Sources]</b> User-provided PPDS breakout-session deck, slide 14; Civio analysis linked in the source slide.</aside>
 </section>
 <section class="slide yellowTop" data-title="Feedback and questions">
