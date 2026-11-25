@@ -123,6 +123,7 @@ THE QUERY ON THIS SLIDE
 
 ---
 
+<!-- .slide: class="compact-title-slide" -->
 ## SPARQL is like assembling Lego blocks
 
 Blocks (triple patterns) are snapped on the common variable<!-- .element: data-fragment-index="1" class="fragment align-left text-small"--> <br>
@@ -146,6 +147,7 @@ SELECT * {
 ```
 
 ---
+<!-- .slide: class="compact-title-slide" -->
 ## Query Service user options
 
 
