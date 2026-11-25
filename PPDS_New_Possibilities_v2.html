@@ -193,6 +193,19 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .source-slide-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 .ivo-live-slide{background:#fff}
 .ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.dashboard-full-slide{background:#fff}
+.dashboard-full-slide .left-rule,
+.dashboard-full-slide .demo-heading,
+.dashboard-full-slide .demo-wip-note,
+.dashboard-full-slide .demo-live-toolbar,
+.dashboard-full-slide .demo-embed-error,
+.dashboard-full-slide .demo-live-tag,
+.dashboard-full-slide .demo-live-hint,
+.dashboard-full-slide .demo-fallback,
+.dashboard-full-slide .page-no{display:none!important}
+.dashboard-full-slide .slide-pad{position:static!important;padding:0!important}
+.dashboard-full-slide .demo-live-shell{position:absolute!important;inset:0!important;margin:0!important;border:0!important;box-shadow:none!important}
+.dashboard-full-slide .demo-live-shell iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important}
 .source-slide-link{position:absolute;z-index:2;display:block}
 .source-slide-link:focus{outline:4px solid var(--yellow);outline-offset:3px}
 
@@ -241,7 +254,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
-<section class="slide demo-live-slide" data-title="Live demo — Dashboard">
+<section class="slide demo-live-slide dashboard-full-slide" data-title="Live demo — Dashboard">
 <div class="left-rule blue"></div>
 <div class="slide-pad">
 <div class="demo-heading"><div class="kicker">Live demo 01</div><h2>Dashboard — spot the signal</h2><div class="demo-title-rule"></div></div>
@@ -264,7 +277,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="page-no">3</div>
 <aside class="speaker-notes"><b>Timing: 5 min</b><br/>Start with the available dashboard: pick one indicator, change one or two filters, and show how the dashboard helps identify a signal worth investigating.<br/><br/><b>[Sources]</b> PPDS dashboard permalink supplied by the user.</aside>
 </section>
-<section class="slide demo-live-slide" data-title="Dashboard — work in progress">
+<section class="slide demo-live-slide dashboard-full-slide" data-title="Dashboard — work in progress">
 <div class="left-rule blue"></div>
 <div class="slide-pad">
 <div class="demo-heading"><div class="kicker">In development</div><h2>Dashboard — work in progress</h2><div class="demo-title-rule"></div></div>
@@ -274,6 +287,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="demo-toolbar-actions"><button class="demo-btn" data-open="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/">Open working dashboard ↗</button></div>
 </div>
 <div class="demo-live-shell">
+<iframe allow="fullscreen; clipboard-read; clipboard-write" data-src="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/" loading="eager" referrerpolicy="strict-origin-when-cross-origin" title="PPDS dashboard work in progress"></iframe>
 <div class="demo-embed-error"><div><strong>Open this view in Superset</strong>The supplied working-view link is login-gated and currently redirects to the Superset dashboard list until you sign in. Use <b>Open working dashboard</b>, sign in, then select the working dashboard there.</div></div>
 <div class="demo-live-tag" style="background:#FFF7E0;color:#071a42;border-left-color:var(--yellow)">WORK IN PROGRESS</div>
 <div class="demo-live-hint">Login may be required</div>
@@ -455,7 +469,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div id="progress"></div>
 <div id="controls"><button id="prev" title="Previous">←</button><span id="counter"></span><button id="next" title="Next">→</button><button id="noteBtn" title="Presenter notes">N</button><button id="fullBtn" title="Full screen">F</button><button id="helpBtn" title="Help">?</button></div>
 <div id="notes"><h4>Presenter notes</h4><div id="noteText"></div></div>
-<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The two dashboard demo slides embed the live PPDS applications directly. Use “Backup screenshot” if a browser/security policy blocks embedding, and “Open externally” as a final fallback.</p></div></div>
+<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The two dashboard slides fill the canvas with the live PPDS applications. If a browser blocks embedding, open the dashboard URL in a separate tab.</p></div></div>
 <div id="blackout"></div>
 <script>
 const slides=[...document.querySelectorAll('.slide:not(.skip-slide)')]; let idx=0;
