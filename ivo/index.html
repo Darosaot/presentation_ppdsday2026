@@ -3,6 +3,12 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<script>
+			// The integrated PPDS deck supplies its own title treatment. Mark the
+			// embedded copy before the markdown slide is rendered so the source
+			// title can be hidden without changing Ivo's standalone presentation.
+			if (window.top !== window.self) document.documentElement.classList.add("embedded-ivo");
+		</script>
 
 		<!-- Reveal.js Stylesheets -->
 		<link rel="stylesheet" href="https://kvistgaard.github.io/slides/common/dist/reset.css" />
@@ -53,6 +59,17 @@
 			.reveal .slides section.lego-slide pre {
 				max-width: 760px;
 				overflow: hidden;
+			}
+
+			/* In the integrated deck the parent title occupies the top band. Keep
+			   Ivo's two explanatory fragments and the Lego diagram below it rather
+			   than letting the parent's title mask the first row of content. */
+			html.embedded-ivo .reveal .slides section.compact-title-slide > h2 {
+				visibility: hidden;
+			}
+			html.embedded-ivo .reveal .slides section.lego-slide > p,
+			html.embedded-ivo .reveal .slides section.lego-slide > .d-flex {
+				transform: translateY(75px);
 			}
 		</style>
 		<!-- <link rel="stylesheet" href="../../common/css/black-top.css" /> -->
