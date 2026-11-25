@@ -206,6 +206,22 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .dashboard-full-slide .slide-pad{position:static!important;padding:0!important}
 .dashboard-full-slide .demo-live-shell{position:absolute!important;inset:0!important;margin:0!important;border:0!important;box-shadow:none!important}
 .dashboard-full-slide .demo-live-shell iframe{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;border:0!important}
+.dashboard-link-slide{background:#fff}
+.dashboard-link-slide .left-rule,
+.dashboard-link-slide .demo-heading,
+.dashboard-link-slide .demo-wip-note,
+.dashboard-link-slide .demo-live-toolbar,
+.dashboard-link-slide .demo-live-shell,
+.dashboard-link-slide .page-no{display:none!important}
+.dashboard-link-slide .slide-pad{position:absolute!important;inset:0!important;padding:0!important;display:grid;place-items:center}
+.dashboard-link-card{width:min(980px,calc(100% - 220px));padding:54px 64px 58px;text-align:center;background:#f7f9fc;border:1px solid #d9e1ec;border-top:8px solid var(--yellow);box-shadow:0 12px 34px rgba(16,36,70,.14);color:#071a42}
+.dashboard-link-card .kicker{margin-bottom:14px;color:var(--blue);font-size:16px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.dashboard-link-card h2{margin:0;color:var(--blue);font-size:48px;line-height:1.08}
+.dashboard-link-card p{margin:18px 0 22px;color:#44536a;font-size:20px}
+.dashboard-link-card .dashboard-url{display:block;margin:0 auto 28px;max-width:860px;color:#147db3;font-size:18px;line-height:1.45;overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:4px}
+.dashboard-link-card .dashboard-open-button{display:inline-block;padding:14px 24px;background:var(--yellow);color:#071a42;font-size:18px;font-weight:700;text-decoration:none;box-shadow:0 3px 0 #d7a900}
+.dashboard-link-card .dashboard-open-button:focus,.dashboard-link-card .dashboard-url:focus{outline:4px solid var(--blue);outline-offset:4px}
+.dashboard-link-card .dashboard-note{margin:24px 0 0;color:#68758a;font-size:15px}
 .source-slide-link{position:absolute;z-index:2;display:block}
 .source-slide-link:focus{outline:4px solid var(--yellow);outline-offset:3px}
 
@@ -254,9 +270,16 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
-<section class="slide demo-live-slide dashboard-full-slide" data-title="Live demo — Dashboard">
+<section class="slide demo-live-slide dashboard-full-slide dashboard-link-slide" data-title="Clean vehicles dashboard">
 <div class="left-rule blue"></div>
 <div class="slide-pad">
+<div class="dashboard-link-card">
+<div class="kicker">Dashboard demo 01</div>
+<h2>Clean vehicles dashboard</h2>
+<p>Open the live PPDS dashboard in a new tab.</p>
+<a class="dashboard-url" href="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/23RBJKmXyvO/" rel="noopener noreferrer" target="_blank">https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/23RBJKmXyvO/</a>
+<a class="dashboard-open-button" href="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/23RBJKmXyvO/" rel="noopener noreferrer" target="_blank">Open dashboard ↗</a>
+</div>
 <div class="demo-heading"><div class="kicker">Live demo 01</div><h2>Dashboard — spot the signal</h2><div class="demo-title-rule"></div></div>
 <div class="demo-live-toolbar">
 <div class="demo-route"><span class="demo-route-label">Demo route</span><span class="demo-route-step"><b>1</b> Choose an indicator</span><span class="demo-route-step"><b>2</b> Apply one filter</span><span class="demo-route-step"><b>3</b> Read the pattern</span></div>
@@ -277,9 +300,17 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div class="page-no">3</div>
 <aside class="speaker-notes"><b>Timing: 5 min</b><br/>Start with the available dashboard: pick one indicator, change one or two filters, and show how the dashboard helps identify a signal worth investigating.<br/><br/><b>[Sources]</b> PPDS dashboard permalink supplied by the user.</aside>
 </section>
-<section class="slide demo-live-slide dashboard-full-slide" data-title="Dashboard — work in progress">
+<section class="slide demo-live-slide dashboard-full-slide dashboard-link-slide" data-title="Dashboard — work in progress">
 <div class="left-rule blue"></div>
 <div class="slide-pad">
+<div class="dashboard-link-card">
+<div class="kicker">Dashboard demo 02 · In development</div>
+<h2>Dashboard — work in progress</h2>
+<p>Open the working dashboard directly in Superset.</p>
+<a class="dashboard-url" href="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/" rel="noopener noreferrer" target="_blank">https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/</a>
+<a class="dashboard-open-button" href="https://api.public-procurement-data-space.europa.eu/superset/dashboard/p/LyvQXN0JEaM/" rel="noopener noreferrer" target="_blank">Open working dashboard ↗</a>
+<div class="dashboard-note">Requires user login · shown as an active development item, not a final product.</div>
+</div>
 <div class="demo-heading"><div class="kicker">In development</div><h2>Dashboard — work in progress</h2><div class="demo-title-rule"></div></div>
 <div class="demo-wip-note"><b>Not a final product</b> This working dashboard requires user login and is shown as an active development item.</div>
 <div class="demo-live-toolbar">
@@ -469,13 +500,13 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <div id="progress"></div>
 <div id="controls"><button id="prev" title="Previous">←</button><span id="counter"></span><button id="next" title="Next">→</button><button id="noteBtn" title="Presenter notes">N</button><button id="fullBtn" title="Full screen">F</button><button id="helpBtn" title="Help">?</button></div>
 <div id="notes"><h4>Presenter notes</h4><div id="noteText"></div></div>
-<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The two dashboard slides fill the canvas with the live PPDS applications. If a browser blocks embedding, open the dashboard URL in a separate tab.</p></div></div>
+<div id="help"><div class="card"><h3>Presentation controls</h3><p><span class="key">→</span> / <span class="key">Space</span> next   <span class="key">←</span> previous   <span class="key">Home</span> first   <span class="key">End</span> last</p><p><span class="key">N</span> presenter notes   <span class="key">F</span> full screen   <span class="key">B</span> blackout   <span class="key">?</span> this help</p><p class="small muted">The two dashboard slides provide direct links to the PPDS applications. The second link requires login and presents work in progress.</p></div></div>
 <div id="blackout"></div>
 <script>
 const slides=[...document.querySelectorAll('.slide:not(.skip-slide)')]; let idx=0;
 const counter=document.getElementById('counter'),progress=document.getElementById('progress'),notes=document.getElementById('notes'),noteText=document.getElementById('noteText'),viewport=document.getElementById('viewport');
 function fit(){const s=document.getElementById('stage');const scale=Math.min(innerWidth/1600,innerHeight/900);s.style.transform=`scale(${scale})`}
-function loadEmbedForSlide(slide){const f=slide?.querySelector('iframe[data-src]');if(f&&f.dataset.src&&!f.dataset.loaded){f.src=f.dataset.src;f.dataset.loaded='1'}}
+function loadEmbedForSlide(slide){if(slide?.classList.contains('dashboard-link-slide'))return;const f=slide?.querySelector('iframe[data-src]');if(f&&f.dataset.src&&!f.dataset.loaded){f.src=f.dataset.src;f.dataset.loaded='1'}}
 function stepIvo(direction){const frame=slides[idx]?.querySelector('iframe.ivo-frame');if(!frame||!frame.src)return false;try{const deck=frame.contentWindow.Reveal;if(!deck)return true;const fragments=deck.availableFragments?.();const available=direction>0?fragments?.next:fragments?.prev;if(available){direction>0?deck.next():deck.prev();return true}}catch(e){}return false}
 function show(n){idx=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===idx));viewport.style.background=slides[idx].classList.contains('blue')?'var(--blue)':'#fff';counter.textContent=`${idx+1} / ${slides.length}`;progress.style.width=`${(idx+1)/slides.length*100}%`;const pageNo=slides[idx].querySelector('.page-no');if(pageNo) pageNo.textContent=String(idx+1);const sn=slides[idx].querySelector('.speaker-notes');noteText.innerHTML=sn?sn.innerHTML:'No notes.';document.title=`${idx+1}/${slides.length} — ${slides[idx].dataset.title||'PPDS'}`;location.hash=`s${idx+1}`;requestAnimationFrame(()=>loadEmbedForSlide(slides[idx]))}
 function next(){if(!stepIvo(1))show(idx+1)} function prev(){if(!stepIvo(-1))show(idx-1)}
