@@ -24,6 +24,7 @@ button,a{font:inherit}
 .ec-logo.white{filter:none}
 .page-no{position:absolute;bottom:62px;left:50%;transform:translateX(-50%);font-size:18px;color:#777}
 .blue .page-no{color:#fff}
+.page-no,.hybrid-ai .ai-page{display:none!important}
 .footer-note{position:absolute;left:14px;bottom:14px;font-size:12px;color:#777}
 .slide-pad{position:absolute;left:122px;right:110px;top:80px;bottom:80px}
 .kicker{font-size:18px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--blue)}
@@ -196,13 +197,16 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .hybrid-ai .ai-editable{position:absolute;z-index:2}
 .hybrid-ai .ai-page-cover{position:absolute;left:70px;bottom:18px;width:125px;height:78px;background:#fff;z-index:2}
 .hybrid-ai .ai-page{position:absolute;left:94px;bottom:32px;z-index:3;font-size:18px;color:#777}
+.ai15-yellow-cover{position:absolute;left:0;top:0;width:180px;height:180px;background:#fff;z-index:1}
+.ai-title-left-cover{position:absolute;left:0;top:0;width:122px;height:190px;background:#fff;z-index:1}
+.ai-title-rule{position:absolute;left:108px;top:0;width:4px;height:168px;background:var(--blue);z-index:3}
 .ai15-card{top:109px;width:522px;height:719px;background:#f2f2f2;padding:76px 40px 28px;display:flex;flex-direction:column;justify-content:space-between}
 .ai15-card.one{left:184px}.ai15-card.two{left:745px}
 .ai15-card blockquote{position:relative;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:27px;line-height:1.3;font-weight:400;color:#1f1f1f}
 .ai15-card blockquote::before{content:"“";position:absolute;left:2px;top:-52px;font-size:92px;line-height:1;color:#b6b6b6}
 .ai15-card cite{font-family:Arial,Helvetica,sans-serif;font-style:normal;border-top:3px solid #242424;padding-top:14px;font-size:16px;line-height:1.35;color:#222}
 .ai15-card cite a{color:#126db0;text-decoration:underline;text-underline-offset:3px}
-.ai16-title{left:140px;top:78px;right:110px;font-family:Arial,Helvetica,sans-serif;font-size:56px;line-height:1.05;font-weight:400;color:var(--blue)}
+.ai16-title{left:122px;top:80px;right:110px;font-family:Arial,Helvetica,sans-serif;font-size:43px;line-height:1.1;font-weight:400;color:var(--blue)}
 .ai16-title-cover{position:absolute;left:110px;top:58px;width:1010px;height:150px;background:#fff;z-index:1}
 .ai16-card{top:254px;width:288px;height:393px;background:#f2f2f2;padding:20px 14px 14px;display:flex;flex-direction:column;gap:16px}
 .ai16-card.c1{left:62px}.ai16-card.c2{left:364px}.ai16-card.c3{left:666px}.ai16-card.c4{left:968px}.ai16-card.c5{left:1270px}
@@ -210,7 +214,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .ai16-card p{margin:0;padding:20px 16px;background:#fff;color:#505050;font-family:Arial,Helvetica,sans-serif;font-size:19px;line-height:1.35;font-weight:400;text-align:center;flex:1}
 .ai17-cover,.ai18-cover{position:absolute;left:110px;top:0;width:675px;height:900px;background:#fff;z-index:1}
 .ai18-title-cover{position:absolute;left:110px;top:40px;width:900px;height:170px;background:#fff;z-index:1}
-.ai17-title,.ai18-title{left:150px;top:78px;color:var(--blue);font-family:Arial,Helvetica,sans-serif;font-size:56px;line-height:1.05;font-weight:400}
+.ai17-title,.ai18-title{left:122px;top:80px;color:var(--blue);font-family:Arial,Helvetica,sans-serif;font-size:43px;line-height:1.1;font-weight:400}
 .ai17-bullets,.ai18-bullets{left:150px;top:278px;width:580px;color:#505050;font-family:Arial,Helvetica,sans-serif;font-size:34px;line-height:1.35;font-weight:400}
 .ai17-bullet,.ai18-bullet{position:relative;padding-left:36px;margin-bottom:44px}
 .ai17-bullet::before,.ai18-bullet::before{content:"•";position:absolute;left:0;top:0;color:var(--blue);font-size:43px;line-height:1}
@@ -218,7 +222,10 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .ai18-bullets{top:270px;width:610px}
 .ai18-bullet{margin-bottom:34px}
 .ivo-live-slide{background:#fff}
-.ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff}
+.ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;z-index:1}
+.ivo-title-cover{position:absolute;left:0;top:0;width:100%;height:220px;background:#fff;z-index:2}
+.unified-title{position:absolute;left:122px;top:80px;z-index:3;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:43px;line-height:1.1;font-weight:400;color:var(--blue)}
+.unified-title-rule{position:absolute;left:108px;top:0;width:4px;height:168px;background:var(--blue);z-index:3}
 .dashboard-full-slide{background:#fff}
 .dashboard-full-slide .left-rule,
 .dashboard-full-slide .demo-heading,
@@ -286,7 +293,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 
 <section class="slide source-slide ivo-live-slide" data-title="PPDS data flow">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/2" title="Ivo's PPDS data flow slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/2" title="Ivo's PPDS data flow slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Start with the architecture: source data enters the semantic pipeline, is deduplicated and validated, and becomes reusable PPDS knowledge graphs and services. This is the context for the dashboards and tools that follow.<br/><br/><b>[Source]</b> Ivo Velitchkov, PPDS Day 2026 deck.</aside>
 </section>
 
@@ -305,7 +312,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 
 <section class="slide source-slide ivo-live-slide" data-title="Data Explorer — one integrated workspace">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/3" title="Ivo's Data Explorer slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/3" title="Ivo's Data Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
@@ -367,31 +374,34 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Frame this clearly as work in progress. It requires user login and should not be presented as a finished, publicly available product. Use the external link if the embedded view is blocked.<br/><br/><b>[Sources]</b> PPDS dashboard permalink supplied by the user.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Data Catalogue">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/4" title="Ivo's Data Catalogue slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/4" title="Ivo's Data Catalogue slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Introduce the catalogue as the discovery layer: publishers, datasets, distributions and file formats are visible before anyone starts querying.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Query Service">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/6" title="Ivo's Query Service templates slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/6" title="Ivo's Query Service templates slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Show the prepared-query route first. The template library gives people a starting point, while the editor keeps the resulting SPARQL visible.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Graph Explorer">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/5" title="Ivo's Graph Explorer slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/5" title="Ivo's Graph Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Use the graph view to move from a notice to related procedures, buyers, suppliers and other linked entities.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="SPARQL editor — a precise question">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/7" title="Ivo's SPARQL editor slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/7" title="Ivo's SPARQL editor slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>This is the precise-query route: a SPARQL pattern names the concepts and relationships explicitly, then returns inspectable results.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="SPARQL is like assembling Lego blocks">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/8" title="Ivo's SPARQL Lego slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/8" title="Ivo's SPARQL Lego slide"></iframe>
+<div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">SPARQL is like assembling Lego blocks</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 3 min</b><br/>Explain the mental model: triple patterns connect on shared variables. The chain moves from a role to an organisation, address and country code.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Query Service user options">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/9" title="Ivo's Query Service options slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/9" title="Ivo's Query Service options slide"></iframe>
+<div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">Query Service user options</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Close the SPARQL section with the three user paths: select from the library, use an agent against the ontology and library, or learn PPDS-focused SPARQL.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="More SPARQL resources">
-<iframe class="ivo-frame" data-src="ivo/index.html?v=3#/10" title="Ivo's SPARQL resources slide"></iframe>
+<iframe class="ivo-frame" data-src="ivo/index.html?v=4#/10" title="Ivo's SPARQL resources slide"></iframe>
+<div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">More SPARQL resources</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 1 min</b><br/>Point people to the general SPARQL wiki and course, then to the ePO graph-pattern and workshop resources.</aside>
 </section>
 
@@ -514,6 +524,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 <section class="slide source-slide hybrid-ai" data-title="Why semantics matters for AI">
 <img alt="Original Gartner quotation slide artwork" class="source-slide-img" src="assets/ai/slide-11-semantics.png"/>
+<div class="ai15-yellow-cover"></div>
 <div class="ai-editable ai15-card one"><blockquote>Semantics at the core must be adopted as the strategic imperative of the modern D&amp;A operating model, shifting semantics from an afterthought to the critical foundation required for building robust, interoperable, reliable and scalable AI systems.</blockquote><cite><b>Gartner research</b><br/><a href="https://www.gartner.com/doc/reprints?id=1-2NG2O8OU&amp;ct=260529&amp;st=sb" target="_blank" rel="noopener noreferrer">Top Trends in D&amp;A for 2026</a></cite></div>
 <div class="ai-editable ai15-card two"><blockquote>By 2027, organizations that prioritize <b>semantics in AI-ready data</b> will increase their agentic AI accuracy by up to <b>80%</b> and reduce costs by up to <b>60%</b>.</blockquote><cite><b>Gartner prediction</b><br/><a href="https://www.gartner.com/en/newsroom/press-releases/2026-05-11-gartner-says-lack-of-semantics-causes-inaccurate-artificial-intelligence-agents-and-wasted-spending" target="_blank" rel="noopener noreferrer">Press release, 11 May 2026</a></cite></div>
 <div class="ai-page-cover"></div><div class="ai-page">15</div>
@@ -521,6 +532,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 <section class="slide source-slide hybrid-ai" data-title="Artificial Intelligence in the PPDS">
 <img alt="Original PPDS artificial-intelligence benefits slide artwork" class="source-slide-img" src="assets/ai/slide-12-ai-semantics.png"/>
+<div class="ai-title-left-cover"></div><div class="ai-title-rule"></div>
 <div class="ai16-title-cover"></div>
 <h2 class="ai-editable ai16-title">Artificial Intelligence in the PPDS</h2>
 <div class="ai-editable ai16-card c1"><h3>The AI understands what the data means</h3><p>Concepts and their relationships are defined explicitly, so the AI doesn't have to guess what a field or a value means.</p></div>
@@ -533,6 +545,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 <section class="slide source-slide hybrid-ai" data-title="AI use case — Chatbot">
 <img alt="PPDS chatbot dashboard and response artwork" class="source-slide-img" src="assets/ai/slide-13-chatbot.png"/>
+<div class="ai-title-left-cover"></div><div class="ai-title-rule"></div>
 <div class="ai17-cover"></div><h2 class="ai-editable ai17-title">Use case: Chatbot</h2>
 <div class="ai-editable ai17-bullets"><div class="ai17-bullet">Query PPDS data with<br/><strong>natural language</strong></div><div class="ai17-bullet">Low hallucination:<br/>deterministic due to<br/>conversion to SPARQL</div></div>
 <div class="ai-page-cover"></div><div class="ai-page">17</div>
@@ -540,6 +553,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 <section class="slide source-slide hybrid-ai" data-title="AI use case — Fraud detection">
 <img alt="Original fraud-detection chart artwork" class="source-slide-img" src="assets/ai/slide-14-fraud-detection.png"/>
+<div class="ai-title-left-cover"></div><div class="ai-title-rule"></div>
 <div class="ai18-cover"></div><div class="ai18-title-cover"></div><h2 class="ai-editable ai18-title">Use case: Fraud detection</h2>
 <div class="ai-editable ai18-bullets"><div class="ai18-bullet">Automatic identification of<br/>suspicious patterns</div><div class="ai18-bullet">Reporting to the MS about<br/>their activity</div><div class="ai18-bullet">E.g., in Spain there is a peak<br/>of contracts just under the<br/>threshold that requires<br/>competition (15K €)</div></div>
 <div class="ai-page-cover"></div><div class="ai-page">18</div>

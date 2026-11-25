@@ -168,6 +168,7 @@ SELECT * {
 
 ---
 
+<!-- .slide: class="compact-title-slide" -->
 ## More SPARQL resources
 
 <br>
