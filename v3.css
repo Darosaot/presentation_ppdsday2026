@@ -1,0 +1,93 @@
+/* Reveal owns slide position, visibility, keyboard handling, and URL state. */
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+.reveal { width: 100%; height: 100%; font-family: Arial, Helvetica, sans-serif; }
+.reveal .slides { text-align: left; }
+.reveal .slides > section.slide {
+  position: absolute;
+  inset: auto;
+  display: block;
+  width: 1600px;
+  height: 900px;
+  overflow: hidden;
+  padding: 0 !important;
+  box-sizing: border-box;
+  font-size: 23px;
+  text-align: left;
+}
+.reveal .slides > section.ivo-slide {
+  width: 1600px;
+  height: 900px;
+  padding: 0 !important;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+}
+.reveal .slides > section.ivo-slide h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0356b1;
+  font-size: 43px;
+  line-height: 1.1;
+  font-weight: 400;
+}
+.reveal .slides > section.compact-title-slide > h2 {
+  position: absolute;
+  left: 122px;
+  top: 80px;
+  margin: 0;
+}
+.reveal .slides > section.compact-title-slide::before {
+  content: '';
+  position: absolute;
+  left: 108px;
+  top: 0;
+  width: 4px;
+  height: 168px;
+  background: #0356b1;
+}
+.reveal .slides > section.lego-slide > p,
+.reveal .slides > section.lego-slide > .d-flex {
+  transform: none;
+  margin-left: 220px;
+  max-width: 900px;
+}
+.reveal .slides > section.lego-slide { display: block; }
+.reveal .slides > section.lego-slide > p:first-of-type { margin-top: 205px; }
+.reveal .slides > section#sparql-resources > ul {
+  margin-left: 106px !important;
+  max-width: 1150px;
+}
+.reveal .slides > section.dashboard-full-slide .demo-live-shell iframe {
+  margin: 0 !important;
+  max-width: none !important;
+  max-height: none !important;
+}
+.reveal .slides > section.source-slide > img.source-slide-img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+}
+.reveal .slides > section#semantics-ai .ai15-card blockquote {
+  width: 100% !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.reveal .slides > section.hybrid-ai h2.ai-editable {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 43px !important;
+  line-height: 1.1 !important;
+  font-weight: 400 !important;
+  color: #0356b1 !important;
+}
+.reveal .slides > section#service-architecture h2 {
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-size: 43px !important;
+  line-height: 1.1 !important;
+  font-weight: 400 !important;
+  color: #0356b1 !important;
+}
+.reveal .slides > section .notes { display: none; }
+.reveal .slides > section .page-no,
+.reveal .slides > section .ai-page { display: none !important; }

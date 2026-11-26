@@ -1,0 +1,46 @@
+/* ============================================================
+   figures.css — a figure fills the space left under the title
+   Load AFTER custom5.css:
+     <link rel="stylesheet" href="../../common/css/custom5.css" />
+     <link rel="stylesheet" href="../../common/css/figures.css" />
+
+   custom5.css caps an image at 55vh, a share of the window rather
+   than of the slide, so the same figure shrinks in a shorter window
+   (Catalogue Generation in ppds/iswc-2026: 845x396 at 1280x720,
+   928x435 at 1536x827). The theme also holds an iframe to 95% of the
+   slide width. The decks presented with custom5.css were laid out
+   around both, so the fix lives here, not in custom5.css.
+   ============================================================ */
+
+/* A titled slide whose figure is a direct <img> or <iframe> becomes a
+   column: the title, anything else in order, then the figure taking all
+   the height left. custom5.css sets object-fit: contain on images, and an
+   SVG in an iframe scales to the frame, so the figure keeps its
+   proportions and grows until it meets the sides of the slide or the
+   bottom, whatever the window size. The figure is centred in its box.
+   An iframe no longer needs a hand-tuned height.
+   Not touched: an image with class r-stretch (Reveal sizes it), a figure
+   wrapped in another element, a slide whose h2 is title-center. */
+.reveal .slides > section:has(> h2:not(.title-center)):has(> img:not(.r-stretch), > iframe),
+.reveal .slides > section > section:has(> h2:not(.title-center)):has(> img:not(.r-stretch), > iframe) {
+  display: flex !important;
+  flex-direction: column;
+}
+
+/* The grid in custom5.css aligns the title to the top and the footer to
+   the bottom with align-self. In a column the same property aligns them
+   left and right, so hand it back. A footer still ends up at the bottom:
+   it has margin-top: auto and comes after the figure. */
+.reveal .slides > section:has(> h2:not(.title-center)):has(> img:not(.r-stretch), > iframe) > :is(h2, .mt-auto, .byline, .source-note),
+.reveal .slides > section > section:has(> h2:not(.title-center)):has(> img:not(.r-stretch), > iframe) > :is(h2, .mt-auto, .byline, .source-note) {
+  align-self: auto;
+}
+
+.reveal .slides > section:has(> h2:not(.title-center)) > :is(img:not(.r-stretch), iframe),
+.reveal .slides > section > section:has(> h2:not(.title-center)) > :is(img:not(.r-stretch), iframe) {
+  flex: 1 1 0;
+  min-height: 0;
+  width: 100%;
+  max-width: 100% !important;
+  max-height: none;
+}
