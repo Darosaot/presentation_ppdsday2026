@@ -14,7 +14,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
   font-size: 23px;
   text-align: left;
 }
-.reveal .slides > section.ivo-slide {
+.reveal .slides > section.markdown-slide {
   width: 1600px;
   height: 900px;
   padding: 0 !important;
@@ -22,7 +22,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
   font-family: Arial, Helvetica, sans-serif;
   text-align: left;
 }
-.reveal .slides > section.ivo-slide h2 {
+.reveal .slides > section.markdown-slide h2 {
   font-family: Arial, Helvetica, sans-serif;
   color: #0356b1;
   font-size: 43px;
@@ -44,6 +44,16 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
   height: 168px;
   background: #0356b1;
 }
+.reveal .slides > section.data-flow-slide > img {
+  position: absolute;
+  left: 100px;
+  top: 220px;
+  width: 1400px !important;
+  height: auto !important;
+  max-width: none !important;
+  max-height: none !important;
+  margin: 0 !important;
+}
 .reveal .slides > section.lego-slide > p,
 .reveal .slides > section.lego-slide > .d-flex {
   transform: none;
@@ -56,10 +66,15 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
   margin-left: 106px !important;
   max-width: 1150px;
 }
-.reveal .slides > section.dashboard-full-slide .demo-live-shell iframe {
+.reveal .slides > section.dashboard-iframe-slide > iframe {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   margin: 0 !important;
   max-width: none !important;
   max-height: none !important;
+  border: 0;
 }
 .reveal .slides > section.source-slide > img.source-slide-img {
   width: 100% !important;

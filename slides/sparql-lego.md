@@ -5,7 +5,7 @@ Blocks (triple patterns) are snapped on the common variable<!-- .element: data-f
 
 Example: From role to country code<!-- .element: data-fragment-index="2" class="fragment align-left text-small"-->
 
-![alt](vendor/ivo-assets/sparql-lego-ppds.svg)<!-- .element: data-fragment-index="3" class="fragment" -->
+![SPARQL triple patterns connected like Lego blocks](assets/diagrams/sparql-lego.svg)<!-- .element: data-fragment-index="3" class="fragment" -->
 
 
 

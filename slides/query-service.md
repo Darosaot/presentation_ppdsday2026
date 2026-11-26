@@ -11,7 +11,7 @@ LIMIT 10
 
 Note:
 THE TEMPLATE MENU ON THIS SLIDE
-- How it is made: the fence is shorthand for a live-page background (gallery T27). common/plugin/ppdsSPARQLEditor.js turns it into the Query Service page with the fence's query in its URL, cropped to start at the template menu; ppdsSPARQLEditor.js holds the crop values.
+- How it is made: the fence is shorthand for a live-page background (gallery T27). vendor/reveal/plugin/ppdsSPARQLEditor.js turns it into the Query Service page with the fence's query in its URL, cropped to start at the template menu; ppdsSPARQLEditor.js holds the crop values.
 - The live PPDS Query Service, so the room needs the network.
 - The editor opens with the page's own sample query, already run.
 - Picking a template replaces the query but does not run it: press Run.
