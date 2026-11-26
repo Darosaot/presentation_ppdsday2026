@@ -5,7 +5,7 @@
  * <iframe> is a separate document reveal cannot touch. This bridges the two:
  * it watches reveal's own fragment events and tells the embedded page which
  * steps are currently on, via postMessage. The embedded page reacts with
- * common/js/reveal-iframe-receiver.js.
+ * a matching receiver script in the embedded page.
  *
  * On a slide, mark the iframe and add one fragment placeholder per click,
  * each naming the step(s) it switches on:
