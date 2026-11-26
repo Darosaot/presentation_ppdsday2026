@@ -221,11 +221,11 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 .ai17-bullet strong,.ai18-bullet strong{font-weight:700}
 .ai18-bullets{top:270px;width:610px}
 .ai18-bullet{margin-bottom:34px}
-.ivo-live-slide{background:#fff}
+.ivo-live-slide{background:#fff;isolation:isolate}
 .ivo-live-slide iframe{position:absolute;inset:0;width:100%;height:100%;border:0;background:#fff;z-index:1}
 .ivo-title-cover{display:none}
-.unified-title{position:absolute;left:122px;top:80px;z-index:3;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:43px;line-height:1.1;font-weight:400;color:var(--blue)}
-.unified-title-rule{position:absolute;left:108px;top:0;width:4px;height:168px;background:var(--blue);z-index:3}
+.unified-title{position:absolute;left:122px;top:80px;z-index:10;margin:0;font-family:Arial,Helvetica,sans-serif;font-size:43px;line-height:1.1;font-weight:400;color:var(--blue);visibility:visible!important;opacity:1;pointer-events:none}
+.unified-title-rule{position:absolute;left:108px;top:0;width:4px;height:168px;background:var(--blue);z-index:10;visibility:visible!important;opacity:1;pointer-events:none}
 .dashboard-full-slide{background:#fff}
 .dashboard-full-slide .left-rule,
 .dashboard-full-slide .demo-heading,
@@ -293,7 +293,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 
 <section class="slide source-slide ivo-live-slide" data-title="PPDS data flow">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/2" loading="eager" fetchpriority="high" title="Ivo's PPDS data flow slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/2" loading="eager" fetchpriority="high" title="Ivo's PPDS data flow slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Start with the architecture: source data enters the semantic pipeline, is deduplicated and validated, and becomes reusable PPDS knowledge graphs and services. This is the context for the dashboards and tools that follow.<br/><br/><b>[Source]</b> Ivo Velitchkov, PPDS Day 2026 deck.</aside>
 </section>
 
@@ -312,7 +312,7 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 </section>
 
 <section class="slide source-slide ivo-live-slide" data-title="Data Explorer — one integrated workspace">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/3" loading="eager" fetchpriority="high" title="Ivo's Data Explorer slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/3" loading="eager" fetchpriority="high" title="Ivo's Data Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Timing: 2 min</b><br/>Use Ivo's Data Explorer view to connect the architecture to the experience: one workspace links dashboards, the Data Catalogue, Query Service and Graph Explorer. Then move into the two dashboard demonstrations.</aside>
 </section>
 
@@ -374,33 +374,33 @@ p{font-size:23px;line-height:1.35;margin:0 0 16px}
 <aside class="speaker-notes"><b>Timing: 3 min</b><br/>Frame this clearly as work in progress. It requires user login and should not be presented as a finished, publicly available product. Use the external link if the embedded view is blocked.<br/><br/><b>[Sources]</b> PPDS dashboard permalink supplied by the user.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Data Catalogue">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/4" loading="eager" fetchpriority="high" title="Ivo's Data Catalogue slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/4" loading="eager" fetchpriority="high" title="Ivo's Data Catalogue slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Introduce the catalogue as the discovery layer: publishers, datasets, distributions and file formats are visible before anyone starts querying.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Query Service">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/6" loading="eager" fetchpriority="high" title="Ivo's Query Service templates slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/6" loading="eager" fetchpriority="high" title="Ivo's Query Service templates slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Show the prepared-query route first. The template library gives people a starting point, while the editor keeps the resulting SPARQL visible.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Ivo — Graph Explorer">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/5" loading="eager" fetchpriority="high" title="Ivo's Graph Explorer slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/5" loading="eager" fetchpriority="high" title="Ivo's Graph Explorer slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Use the graph view to move from a notice to related procedures, buyers, suppliers and other linked entities.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="SPARQL editor — a precise question">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/7" loading="eager" fetchpriority="high" title="Ivo's SPARQL editor slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/7" loading="eager" fetchpriority="high" title="Ivo's SPARQL editor slide"></iframe>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>This is the precise-query route: a SPARQL pattern names the concepts and relationships explicitly, then returns inspectable results.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="SPARQL is like assembling Lego blocks">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/8" loading="eager" fetchpriority="high" title="Ivo's SPARQL Lego slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/8" loading="eager" fetchpriority="high" title="Ivo's SPARQL Lego slide"></iframe>
 <div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">SPARQL is like assembling Lego blocks</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 3 min</b><br/>Explain the mental model: triple patterns connect on shared variables. The chain moves from a role to an organisation, address and country code.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="Query Service user options">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/9" loading="eager" fetchpriority="high" title="Ivo's Query Service options slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/9" loading="eager" fetchpriority="high" title="Ivo's Query Service options slide"></iframe>
 <div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">Query Service user options</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 2 min</b><br/>Close the SPARQL section with the three user paths: select from the library, use an agent against the ontology and library, or learn PPDS-focused SPARQL.</aside>
 </section>
 <section class="slide source-slide ivo-live-slide" data-title="More SPARQL resources">
-<iframe class="ivo-frame" src="ivo/index.html?v=6#/10" loading="eager" fetchpriority="high" title="Ivo's SPARQL resources slide"></iframe>
+<iframe class="ivo-frame" src="ivo/index.html?v=7#/10" loading="eager" fetchpriority="high" title="Ivo's SPARQL resources slide"></iframe>
 <div class="ivo-title-cover"></div><div class="unified-title-rule"></div><h2 class="unified-title">More SPARQL resources</h2>
 <aside class="speaker-notes"><b>Presenter: Ivo · Timing: 1 min</b><br/>Point people to the general SPARQL wiki and course, then to the ePO graph-pattern and workshop resources.</aside>
 </section>
@@ -587,9 +587,11 @@ const stage=document.getElementById('stage');
 function refocusStage(){if(document.activeElement!==stage)stage.focus({preventScroll:true})}
 function fit(){const s=document.getElementById('stage');const scale=Math.min(innerWidth/1600,innerHeight/900);s.style.transform=`scale(${scale})`}
 function loadEmbedForSlide(slide){if(slide?.classList.contains('dashboard-link-slide'))return;const f=slide?.querySelector('iframe[data-src]');if(f&&f.dataset.src&&!f.dataset.loaded){f.src=f.dataset.src;f.dataset.loaded='1'}}
-function relayoutIvoFrame(slide){const frame=slide?.querySelector('iframe.ivo-frame');if(!frame)return;const relayout=()=>{try{const deck=frame.contentWindow?.Reveal;if(deck?.layout)deck.layout()}catch(e){}};if(!frame.dataset.layoutHooked){frame.addEventListener('load',relayout);frame.dataset.layoutHooked='1'}requestAnimationFrame(relayout);setTimeout(relayout,80);setTimeout(relayout,240)}
-function stepIvo(direction){const frame=slides[idx]?.querySelector('iframe.ivo-frame');if(!frame||!frame.src)return false;try{const deck=frame.contentWindow.Reveal;if(!deck||deck.isReady?.()===false)return false;const before=deck.getIndices?.()||{};const fragments=deck.availableFragments?.();const available=direction>0?fragments?.next:fragments?.prev;if(available){direction>0?deck.next():deck.prev();return true}if(typeof deck.next==='function'&&typeof deck.prev==='function'){direction>0?deck.next():deck.prev();const after=deck.getIndices?.()||{};if(after.h!==before.h||after.v!==before.v||after.f!==before.f)return true}}catch(e){}return false}
-function show(n){idx=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===idx));viewport.style.background=slides[idx].classList.contains('blue')?'var(--blue)':'#fff';counter.textContent=`${idx+1} / ${slides.length}`;progress.style.width=`${(idx+1)/slides.length*100}%`;const pageNo=slides[idx].querySelector('.page-no');if(pageNo) pageNo.textContent=String(idx+1);const sn=slides[idx].querySelector('.speaker-notes');noteText.innerHTML=sn?sn.innerHTML:'No notes.';document.title=`${idx+1}/${slides.length} — ${slides[idx].dataset.title||'PPDS'}`;location.hash=`s${idx+1}`;requestAnimationFrame(()=>{loadEmbedForSlide(slides[idx]);relayoutIvoFrame(slides[idx]);refocusStage();setTimeout(refocusStage,120)})}
+function queueStageFocus(frame){if(!frame||frame.dataset.focusQueued)return;frame.dataset.focusQueued='1';let checks=0;const check=()=>{if(frame.dataset.userInteracted==='1')return;if(document.activeElement===frame)refocusStage();if(++checks<60)setTimeout(check,300)};check()}
+function wireIframeFocus(){document.querySelectorAll('iframe').forEach(frame=>{if(frame.dataset.focusHooked)return;frame.addEventListener('load',()=>queueStageFocus(frame));frame.dataset.focusHooked='1';queueStageFocus(frame)})}
+function relayoutIvoFrame(slide){const frame=slide?.querySelector('iframe.ivo-frame');if(!frame)return;const relayout=()=>{try{const deck=frame.contentWindow?.Reveal;if(deck?.layout)deck.layout()}catch(e){}};if(!frame.dataset.layoutHooked){frame.addEventListener('load',relayout);frame.dataset.layoutHooked='1'}relayout();requestAnimationFrame(relayout);setTimeout(relayout,80);setTimeout(relayout,240)}
+function stepIvo(direction){const frame=slides[idx]?.querySelector('iframe.ivo-frame');if(!frame||!frame.src)return false;try{const deck=frame.contentWindow.Reveal;if(!deck||deck.isReady?.()===false)return false;const fragments=deck.availableFragments?.();const available=direction>0?fragments?.next:fragments?.prev;if(available){direction>0?deck.next():deck.prev();return true}}catch(e){}return false}
+function show(n){idx=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,i)=>s.classList.toggle('active',i===idx));viewport.style.background=slides[idx].classList.contains('blue')?'var(--blue)':'#fff';counter.textContent=`${idx+1} / ${slides.length}`;progress.style.width=`${(idx+1)/slides.length*100}%`;const pageNo=slides[idx].querySelector('.page-no');if(pageNo) pageNo.textContent=String(idx+1);const sn=slides[idx].querySelector('.speaker-notes');noteText.innerHTML=sn?sn.innerHTML:'No notes.';document.title=`${idx+1}/${slides.length} — ${slides[idx].dataset.title||'PPDS'}`;location.hash=`s${idx+1}`;slides[idx].querySelectorAll('.unified-title,.unified-title-rule').forEach(el=>{el.style.visibility='visible';el.style.opacity='1'});loadEmbedForSlide(slides[idx]);slides[idx].querySelectorAll('iframe').forEach(queueStageFocus);relayoutIvoFrame(slides[idx]);requestAnimationFrame(()=>{relayoutIvoFrame(slides[idx]);refocusStage();setTimeout(refocusStage,120)})}
 function next(){if(!stepIvo(1))show(idx+1)} function prev(){if(!stepIvo(-1))show(idx-1)}
 addEventListener('resize',fit); fit();
 addEventListener('hashchange',()=>{const h=parseInt((location.hash||'').replace('#s',''),10);if(h&&h-1!==idx)show(h-1)});
@@ -603,9 +605,11 @@ document.querySelectorAll('[data-toggle-fallback]').forEach(b=>b.addEventListene
 document.querySelectorAll('[data-focus-demo]').forEach(b=>b.addEventListener('click',()=>{const s=b.closest('.demo-live-slide');s.classList.toggle('demo-focus');b.textContent=s.classList.contains('demo-focus')?'Exit focus':'Focus demo';}));
 document.querySelectorAll('[data-jump]').forEach(c=>c.addEventListener('click',()=>show(parseInt(c.dataset.jump,10))));
 document.querySelectorAll('.marker').forEach(m=>m.addEventListener('click',()=>m.classList.toggle('on')));
-function handleNavigationKey(e){if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next();return true}if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev();return true}if(e.key==='Home'){e.preventDefault();show(0);return true}if(e.key==='End'){e.preventDefault();show(slides.length-1);return true}return false}
-addEventListener('message',e=>{if(e.data?.type==='ivo-key'){const key=e.data.key;if(['ArrowRight','PageDown',' '].includes(key))next();else if(['ArrowLeft','PageUp'].includes(key))prev();requestAnimationFrame(refocusStage)}});
+function handleNavigationKey(e){if(['ArrowRight','PageDown','>',' '].includes(e.key)){e.preventDefault();next();return true}if(['ArrowLeft','PageUp','<'].includes(e.key)){e.preventDefault();prev();return true}if(e.key==='Home'){e.preventDefault();show(0);return true}if(e.key==='End'){e.preventDefault();show(slides.length-1);return true}return false}
+addEventListener('message',e=>{if(e.data?.type==='ivo-key'){const key=e.data.key;if(['ArrowRight','PageDown','>',' '].includes(key))next();else if(['ArrowLeft','PageUp','<'].includes(key))prev();requestAnimationFrame(refocusStage)}});
 addEventListener('keydown',e=>{if(handleNavigationKey(e))return;if(e.key.toLowerCase()==='n')notes.classList.toggle('show');else if(e.key.toLowerCase()==='f')document.getElementById('fullBtn').click();else if(e.key.toLowerCase()==='b'){const b=document.getElementById('blackout');b.style.display=b.style.display==='block'?'none':'block'}else if(e.key==='?'||e.key==='/')document.getElementById('help').classList.toggle('show');else if(e.key==='Escape'){const fs=document.querySelector('.demo-live-slide.demo-focus');if(fs){fs.classList.remove('demo-focus');const fb=fs.querySelector('[data-focus-demo]');if(fb)fb.textContent='Focus demo';}else{notes.classList.remove('show');document.getElementById('help').classList.remove('show')}}},true);
 addEventListener('focus',refocusStage);
+document.addEventListener('pointerdown',e=>{const frame=e.target.closest?.('iframe');if(frame)frame.dataset.userInteracted='1'},true);
+wireIframeFocus();
 </script>
 </body></html>

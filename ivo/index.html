@@ -162,7 +162,7 @@
 			// The parent PPDS deck owns navigation. Forward keys pressed while the
 			// embedded Reveal deck has focus so mouse-free navigation still works.
 			window.addEventListener("keydown", (event) => {
-				if (["ArrowRight", "PageDown", " ", "ArrowLeft", "PageUp"].includes(event.key)) {
+				if (["ArrowRight", "PageDown", ">", " ", "ArrowLeft", "PageUp", "<"].includes(event.key)) {
 					event.preventDefault();
 					window.parent.postMessage({ type: "ivo-key", key: event.key }, "*");
 				}
