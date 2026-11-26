@@ -1,0 +1,1195 @@
+/* ============================================================
+   custom5.css - the one stylesheet for the 2026 decks
+   (ac/metaphorum-2026, ac/sysprac-2026) and templates/gallery.
+
+   Folds custom4.css (primitives), templates.css (components) and
+   annotations.css into one file, and adds the titled-slide rule
+   (h2 pinned to the top of every slide). Older decks keep loading
+   the three separate files; leave those untouched.
+
+   Parts:
+     A. Primitives - variables, headings, utilities, flex model,
+        images, lists, tables, mermaid, code, iframes
+     B. Components - slide frame, title, source note, term list,
+        cascade, quote, split, columns, figure strip, social icons
+     C. Annotations - underline and margin-note system
+   ============================================================ */
+
+/* ============================================================
+   A. Primitives
+   ============================================================ */
+
+/* Only for slides development: use this style to view the real slide border */
+/* .slides {
+	border: 3px solid #ac0000;
+} */
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Dancing+Script&family=Great+Vibes&family=Kalam:wght@300;400;700&family=Nanum+Pen+Script&family=Permanent+Marker&family=Shadows+Into+Light&family=Amatic+SC:wght@400;700&display=swap');
+/* Variable Presets */
+:root {
+	--r-presentation-bg-color: #ffffff; /* Presentation Background color */
+	--r-block-margin: 0.5rem 0; /* Top and Bottom Margin for all block elemenst */
+	--r-link-color: #000000; /* Link color */
+	--r-link-decoration-color: #ccc; /* Link Decoration color */
+	--r-link-hover-color: #777; /* Link Hover color */
+
+  --mermaid-text-color: #000; /* Mermaid text color */
+  --mermaid-shapes-fill-color: #bbb; /* Mermaid fill color */
+  --mermaid-edge-color: #000; /* Mermaid edge color */
+  --mermaid-edge-label-color: #aaa; /* Mermaid edge label color */
+  --mermaid-arrowhead-color: #000; /* Mermaid arrowhead color */
+
+	--del-decoration-color: #888; /* Deleted text decoration color */
+
+	--figure-caption-color: #555; /* Figure caption color */
+	--figure-border-color: #eae8e8; /* Figure border color */
+
+	--table-text-size: 0.5em; /* Table text size */
+	--table-border-color: #c7c4c4; /* Table border color */
+
+	--bar-fill-color: #bbbbbb; /* Bar chart bar fill color */
+	--bar-text-color: #000; /* Bar chart text color */
+
+	--bar-translate-x: 0; /* Bar chart translate X */
+	--bar-translate-y: 0; /* Bar chart translate Y */
+
+	--color-attention: #de5c00; /* Color for attention text */
+
+	--code-block-background: #f1f3f1; /* Code block background color */
+
+	--footnote-text-color: #808080; /* Footnote text color */
+
+  --control-color: #a8a6a6;  /* Navigation arrow color */
+  --control-progress-color: #000;  /* Navigation progress color */
+  --control-progress-bg-color: rgba(0, 0, 0, 0.2);  /* Navigation progress background color - RGBA format to provide transparency */
+
+  --r-heading-margin: 0 0 .35rem 0; /* Bottom Margin for a headers */
+  --r-heading-h1-margin: 0 0 1rem 0; /* Bottom Margin for a headers */
+  --r-heading-h2-margin: 0 0 2rem 0; /* Bottom Margin for a h2 headers */
+  --r-heading-h3-margin: 0 0 1rem 0; /* Bottom Margin for a h3 headers */
+}
+
+/* Customization overriding existing platform styles*/
+.reveal .slides section {
+  padding: 1rem !important; /* Add padding around slide content */
+  box-sizing: border-box !important; /* Ensure padding is included in slide size */
+}
+
+/* Titled slides. Reveal centres a section vertically (center: true) and a
+   section is only as tall as its content, so an h2 floats unless the slide
+   is full height. Every section with an h2 as a direct child becomes a
+   full-height grid of three bands: the title at the top, the content
+   centred on the slide, a footer at the bottom.
+
+     row 1        1fr   the h2, aligned to the top
+     rows 2..41   auto  everything else, in order; unused rows are 0 high
+     row 42       1fr   a footer (.mt-auto, .byline, .source-note), at the bottom
+
+   The two 1fr rows are always equal, so the content between them is
+   centred on the slide itself, not on what the title leaves over. Each
+   1fr row is at least as tall as what it holds, so when the content is
+   tall the title row shrinks to the title and the content starts right
+   under it. No measuring, no wrapper, no margin on the slide. Margins do
+   not collapse in a grid, so the gap under the h2 grows by the next
+   element's top margin: 0.5rem for text, 1rem for an image.
+   Opt out with title-center on the h2, and the slide centres as before:
+     ## the slides <!-- .element: class="title-center" -->
+   or <h2 class="title-center"> in HTML. Give it to every divider (a slide
+   whose only element is the h2) and to an h2 that is not the slide's
+   top title, e.g. one revealed as a fragment after the content. A slide
+   with two h2s needs it on both.
+   Slide sections only: a deck can nest a <section> inside a slide (the
+   annotation wrapper does), and that one must keep its own layout. */
+.reveal .slides > section:has(> h2:not(.title-center)),
+.reveal .slides > section > section:has(> h2:not(.title-center)) {
+  display: grid !important;
+  grid-template-columns: 100%;
+  grid-template-rows: 1fr repeat(40, auto) 1fr;
+  height: var(--slide-height);
+}
+
+.reveal .slides > section:has(> h2:not(.title-center)) > h2:not(.title-center),
+.reveal .slides > section > section:has(> h2:not(.title-center)) > h2:not(.title-center) {
+  grid-row: 1;
+  align-self: start;
+}
+
+.reveal .slides > section:has(> h2:not(.title-center)) > :is(.mt-auto, .byline, .source-note),
+.reveal .slides > section > section:has(> h2:not(.title-center)) > :is(.mt-auto, .byline, .source-note) {
+  grid-row: -2;
+  align-self: end;
+}
+
+/* Styles for GENERAL HTML ELEMENTS */
+/* Headings */
+/* Remove ALL CAPS from slide titles */
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+	text-transform: none;
+  margin: var(--r-heading-margin, 0 0 0.35rem 0); /* Use variable for heading margin */
+}
+
+/* Custom styling for centering content when h1 is used */
+.reveal h1 {
+	margin: var(--r-heading-h1-margin, 0 0 1rem 0); /* Use variable for h1 margin */
+}
+
+.reveal h2 {
+	margin: var(--r-heading-h2-margin, 0 0 0.35rem 0); /* Use variable for h2 margin */
+}
+
+.reveal h3 {
+	margin: var(--r-heading-h3-margin, 0 0 0.35rem 0); /* Use variable for h3 margin */
+}
+
+/* Font sizes */
+.reveal h1 {
+	font-size: 1.9em;
+}
+.reveal h2 {
+	font-size: 1.5em;
+}
+.reveal h3 {
+	font-size: 1.4em;
+}
+.text-large {
+	font-size: 1.2em;
+}
+.text-mid {
+	font-size: 0.8em;
+}
+.text-small {
+	font-size: 0.6em;
+}
+.text-attention {
+	color: var(--color-attention);
+}
+
+/* Block elements margin */
+.mx-auto {
+margin-left: auto !important;			/* Centered horizontally */
+	margin-right: auto !important;
+}
+
+.my-auto {
+	margin-top: auto !important;			/* Centered vertically */
+	margin-bottom: auto !important;
+}
+
+.mx-auto.my-auto {
+	margin-left: auto !important;	/* Centered both horizontally and vertically */
+	margin-right: auto !important;
+	margin-top: auto !important;
+	margin-bottom: auto !important;
+}
+
+.m-0 {
+	margin: 0 !important; /* No margin */
+}
+
+.mt-auto {
+	margin-top: auto !important; /* Top margin auto, pushing the containre to the bottom when situated insinde <div class="d-flex flex-vertical height-100"> */
+}
+
+.mb-auto {
+	margin-bottom: auto !important;
+}
+
+/* Links */
+.reveal a,
+.reveal a:visited {
+	text-decoration: underline;
+	text-decoration-color: var(--r-link-decoration-color);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 5px;
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.reveal a:hover,
+.reveal a:focus {
+	color: var(--r-link-hover-color);
+}
+
+/* explicit helpers to make overriding easier */
+.align-right {
+	text-align: right;
+}
+.align-center {
+	text-align: center;
+}
+.align-left {
+	text-align: left !important;
+}
+
+/* Del element */
+del {
+	text-decoration: line-through;
+	text-decoration-color: var(--del-decoration-color);
+}
+
+/* Image */
+.reveal img {
+  display: block;
+  max-width: 100% !important;
+  max-height: 55vh;
+  width: auto;
+  object-fit: contain !important;
+  margin: 1rem auto !important;
+}
+
+/* Lists */
+
+.list-unstyled {
+	list-style: none !important;
+	padding-left: 0 !important;
+	margin-left: 0 !important;
+}
+
+/* List items with zero bottom margin */
+ul.margin-0 li,
+ol.margin-0 li {
+	margin-bottom: 0 !important;
+}
+
+/* List items with  bottom margin */
+ul.margin-1 li,
+ol.margin-1 li {
+	margin-bottom: 1.5rem !important;
+}
+
+
+/* Navigation */
+.reveal .controls button {
+  color: var(--control-color);
+}
+
+.reveal .progress {
+  background: var(--control-progress-bg-color); /* Navigation progress background color */
+}
+
+.reveal .progress span {
+  background-color: var(--control-progress-color);
+}
+
+
+/* Flex Model */
+
+.d-flex {
+	display: flex !important;
+}
+
+.flex-vertical {
+	flex-direction: column !important;
+}
+
+.flex-gap-small {
+	gap: 0.5rem !important;
+}
+
+.flex-gap-mid {
+	gap: 1rem !important;
+}
+
+.flex-gap-large {
+	gap: 2rem !important;
+}
+
+.flex-gap-xlarge {
+	gap: 3rem !important;
+}
+
+.flex-fill-equal {
+  flex: 1 1 0 !important;
+}
+
+.height-100 {
+	height: calc(var(--slide-height) - 2rem); /* Adjust for padding */
+}
+
+.reveal .my-indent {
+  display: block;        /* required for span or inline use */
+  margin-left: 2em;      /* shift whole paragraph */
+}
+
+/* Figurte Styles  */
+figure {
+	text-align: center;
+}
+
+figcaption {
+	font-size: 0.8em;
+	margin-top: 0.4em;
+	color: var(--figure-caption-color);
+}
+
+figure img {
+	border: 2px solid var(--figure-border-color);
+	border-radius: 4px;
+}
+
+
+
+
+/* Styles for MERMAID */
+
+.mermaid svg {
+	width: 100%;
+	height: 100%;
+	max-width: 100% !important; /* Overrides diagram width */
+  min-width: 70% !important; /* Ensure diagrams have some minimum width */
+	display: block !important;
+  object-fit: contain;
+  margin: 0 auto !important; /* Center horizontally with old top/bottom margine 1rem */
+  max-height: calc(var(--slide-height) - 2rem); /* Full width makes a tall diagram taller than the slide; cap it at the slide less its padding */
+}
+
+/* A titled slide also loses the h2 band: 75.6px of title plus its 2rem margin */
+.reveal .slides section:has(> h2:not(.title-center)) .mermaid svg {
+  max-height: calc(var(--slide-height) - 9rem);
+}
+
+/* Fix for specific Mermaid components */
+.mermaid .node rect,
+.mermaid .node circle,
+.mermaid .node ellipse,
+.mermaid .node polygon,
+.mermaid .cluster rect {
+	stroke-width: 2px !important; /* <--- control shape border thickness */
+}
+
+/* Make text more readable */
+.mermaid .label {
+	font-size: 16px !important;
+}
+
+/* Important override for graph and flowchart types */
+.mermaid[id^="mermaid-"] {
+	transform: scale(1.1) !important; /* Slightly scale up all diagrams */
+}
+
+/* TWEAKS FOR BLACK THEME */
+/* General text */
+.reveal .mermaid text,
+.reveal .mermaid .nodeLabel,
+.reveal .mermaid .edgeLabel {
+	color: var(--mermaid-text-color) !important;
+}
+
+.reveal .mermaid .edgeLabel {
+	background-color: var(--r-presentation-bg-color) !important;
+}
+
+/* Node shapes */
+.reveal .mermaid rect,
+.reveal .mermaid .node rect,
+.reveal .mermaid circle,
+.reveal .mermaid ellipse,
+.reveal .mermaid polygon {
+	color: var(--mermaid-text-color) !important;
+	fill: var(--mermaid-shapes-fill-color) !important;
+	stroke: none !important;
+	stroke-width: 0.3px !important; /* <--- control shape border thickness */
+}
+
+/* Rounded corners for rectangles */
+.reveal .mermaid rect,
+.reveal .mermaid .node rect {
+	rx: 5 !important; /* <--- corner radius X */
+	ry: 5 !important; /* <--- corner radius Y */
+}
+
+/* Edges */
+.reveal .mermaid .edgePath path,
+.reveal .mermaid .flowchart-link {
+	stroke: var(--mermaid-edge-color) !important;
+	stroke-width: 1.3px !important;
+	fill: none !important;
+}
+
+/* Arrowheads */
+.reveal .mermaid marker path,
+.reveal .mermaid .arrowheadPath {
+	fill: var(--mermaid-arrowhead-color) !important;
+	stroke: none !important;
+}
+
+.node-bkg {
+	fill: var(--mermaid-shapes-fill-color) !important;
+}
+
+
+/* Tables */
+table {
+  margin: auto auto !important;
+  width: auto !important;
+  min-width: 70% !important;
+	max-width: 100% !important;
+  /* max-width: 95vw !important; */
+  max-height: 70vh !important;
+  border-collapse: collapse !important;
+  color: inherit;
+  font-size: var(--table-text-size) !important;
+}
+
+.reveal table th, .reveal table td {
+  border: 2px solid var(--table-border-color) !important;
+  padding: 6px 12px !important;
+  text-align: left;
+  white-space: normal !important;
+  vertical-align: top;
+	line-height: 1.1;
+}
+
+/* Hide table used for data */
+.data-chart-table {
+  position: absolute !important;
+  left: -9999px !important;
+  visibility: hidden !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+
+
+/* Barchart Custom Style */
+
+/* Adjust margin for bar chart slide */
+.chart-slide #bar-chart {
+  margin-top: 60px !important;
+}
+
+/* Manual scaling for bar chart */
+#bar-chart[data-scale] {
+  /* transform: scale(var(--scale)) !important; */
+  transform-origin: top center !important;
+}
+
+/* Bar chart container */
+#bar-chart {
+  width: 100%;
+  position: relative !important;
+  box-sizing: border-box;
+	overflow: visible;
+}
+
+/* SVG should now fill the container */
+#bar-chart svg {
+  /* display: block; */
+  width: auto !important;
+  height: auto !important;
+  font-family: Arial, sans-serif;
+  background-color: transparent !important;
+  overflow: visible !important;
+	scale: var(--scale);
+	transform: translate(var(--bar-translate-x), var(--bar-translate-y));
+}
+
+/* Bars */
+.bar-rect {
+  fill: var(--bar-fill-color) !important;
+}
+
+/* Labels */
+#bar-chart text {
+  font-size: 12px;
+  fill: var(--bar-text-color) !important;
+}
+
+/* Iframe styles */
+.reveal iframe {
+  width: 100%;
+  height: 550px;
+  border: none;
+  display: block; /* Makes iframe a block element, so it respects width */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
+  box-sizing: border-box; /* Includes padding and border in the width */
+}
+
+/* KaTeX display blocks ($$ … $$). KaTeX centres with text-align, which
+   cannot centre a line wider than its box: an array wider than the slide
+   starts at the left edge and overflows to the right, so it reads as
+   shifted right. Flex centring overflows both sides equally instead. An
+   array that still does not fit needs a smaller font-size on its slide. */
+.reveal .katex-display > .katex {
+  display: flex;
+  justify-content: center;
+}
+
+/* Fragment placeholders that drive an embedded page's steps
+   (common/js/iframe-fragments.js). Empty spans; they take no space. */
+.reveal .fragment[data-iframe-step] {
+  display: none !important;
+}
+
+/* Code block styles */
+.reveal pre {
+  width: 100%;
+  max-height: none ;
+  font-size: 0.4em;
+  line-height: 1.2;
+  padding: 0 !important;
+  margin-top: 0.5rem !important;
+  margin-bottom: 0.5rem !important;
+  background-color: var(--code-block-background) !important;
+  border: none !important;
+  box-shadow: none !important;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+.reveal pre code {
+  max-height: none !important;
+  background: var(--code-block-background) !important;
+  padding: 0.7rem !important;
+  border-radius: 4px !important;
+  font-size: 0.8em;
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* New one to fix the problem with inline code no getting the background color */
+.reveal code,
+.reveal code[class*="language-"] {
+  font-family: var(--r-code-font);
+  text-transform: none;
+  tab-size: 2;
+  background-color: var(--code-block-background);
+
+  padding: 0.02em 0.2em;
+  border-radius: 3px;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  font-size: 1em;
+  line-height: 1.5;
+  tab-size: 4;
+  text-transform: none;
+  white-space: normal;
+  text-shadow: none;
+}
+
+
+/* Footnote styles */
+.footnote {
+  font-size: 0.5em;
+  color: var(--footnote-text-color);
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+  text-align: center;
+}
+
+/* Micro-post preview styles */
+.micro-post-preview {
+  border: 2px solid var(--figure-border-color);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem auto;
+  background-color: #f9f9f9;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-align: left;
+  font-size: 0.8em;
+  transition: box-shadow 0.2s ease;
+}
+
+.micro-post-preview:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.micro-post-preview a {
+  text-decoration: none;
+  color: var(--r-link-color);
+  font-weight: bold;
+}
+
+.micro-post-preview a:hover {
+  color: var(--r-link-hover-color);
+}
+
+.micro-post-preview p {
+  margin: 0.5rem 0 0 0;
+  color: #555;
+}
+
+/* ============================================================
+   B. Components - the named parts the slide templates are built
+      from. See templates/gallery/ for the rendered catalogue.
+   ============================================================ */
+
+:root {
+	--tpl-gloss-color: #979695;      /* gray sub-line under a term */
+	--tpl-kicker-color: #777676;     /* small line above a title */
+	--tpl-substep-color: #5b7185;    /* indented technical sub-lines in a cascade */
+	--tpl-gap: 3rem;                 /* default column gap */
+}
+
+/* ------------------------------------------------------------
+   0. Ported from custom3.css / custom-black.css.
+      .margin-3 and .height-50 appear in older decks but have no rule
+      anywhere, on purpose: defining them would reflow those decks.
+   ------------------------------------------------------------ */
+
+/* Left-to-right strikethrough on a fragment (ported from custom3.css). */
+.reveal .strike-animate {
+	position: relative;
+	display: inline-block;
+}
+
+.reveal .strike-animate::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background-color: #888;
+	transition: width 1.5s ease-out;
+	transition-delay: 1.5s;
+	transform: translateY(-50%);
+}
+
+.reveal .fragment.strike-animate.visible::after {
+	width: 100%;
+}
+
+/* ------------------------------------------------------------
+   1. Slide frame
+      .slide-frame is the full-height column used whenever something
+      has to be pinned to the bottom of the slide with .mt-auto.
+      (Shorthand for: d-flex flex-vertical height-100.)
+   ------------------------------------------------------------ */
+
+.slide-frame {
+	display: flex !important;
+	flex-direction: column !important;
+	height: calc(var(--slide-height) - 2rem);
+	position: relative; /* containing block for the centred quote below */
+}
+
+/* Eats the leftover vertical space inside a .slide-frame and centres its
+   content in it. Use this — not .my-auto — to float a hero image between
+   the top of the slide and a footer pinned with .mt-auto: flexbox splits
+   free space equally between ALL auto margins, so .my-auto on the image
+   plus .mt-auto on the footer lands the image a third of the way down,
+   not in the middle. (The closing slide, T05.) */
+.fill-center {
+	display: flex !important;
+	flex: 1 1 auto;
+	align-items: center;
+	justify-content: center;
+	min-height: 0; /* allow it to shrink rather than overflow the slide */
+}
+
+.reveal .fill-center img {
+	margin: 0 auto !important; /* override the global .reveal img 1rem margin */
+	max-height: 100%;
+}
+
+/* ------------------------------------------------------------
+   2. Title slide
+   ------------------------------------------------------------ */
+
+.title-kicker {
+	display: block;
+	font-size: 0.9em;
+	color: var(--tpl-kicker-color);
+	letter-spacing: 0.06em;
+}
+
+.title-main {
+	display: block;
+	font-size: 1.9em;
+	line-height: 1.15;
+}
+
+.title-sub {
+	display: block;
+	font-size: 0.86em;
+	color: var(--tpl-gloss-color);
+}
+
+/* Author | date | venue, pinned to the bottom of a .slide-frame */
+.byline {
+	margin-top: auto !important;
+	font-size: 0.7em;
+}
+
+/* ------------------------------------------------------------
+   3. Source note — the recurring bottom-right "See [article]" line.
+      Pins itself to the bottom of the slide. margin-top:auto does the
+      work inside a full-height flex column; the :has() rule below gives
+      a bare source-note that column so the class also works on its own.
+   ------------------------------------------------------------ */
+
+.source-note {
+	margin-top: auto !important;
+	font-size: 0.6em;
+	text-align: right;
+}
+
+/* margin-top:auto only pushes the note down inside a full-height flex
+   column — a .slide-frame or a d-flex flex-vertical height-100 wrapper.
+   With no wrapper it resolves to 0 and the note sits under the content.
+   So make the slide itself that column whenever a source-note is dropped
+   straight onto it. A wrapped source-note is not a direct child of the
+   section, so those slides never match; where :has() is unsupported the
+   note keeps its old in-flow position.
+   display:flex needs !important to beat the inline display reveal sets on
+   the current slide (as .slide-frame's rule does). height is the whole
+   slide, not slide-frame's `- 2rem`, because this rule sits on the
+   1rem-padded section rather than a div inside it — same content box.
+   A titled slide (h2 as direct child) is laid out by the grid in part A,
+   which already pins the source-note; this rule steps aside there. */
+.reveal .slides > section:has(> .source-note):not(:has(> h2:not(.title-center))),
+.reveal .slides > section > section:has(> .source-note):not(:has(> h2:not(.title-center))) {
+	display: flex !important;
+	flex-direction: column !important;
+	height: var(--slide-height);
+}
+
+/* Same look, but stays in the flow instead of being pushed down. */
+.source-note-inline {
+	font-size: 0.6em;
+	text-align: right;
+	margin-top: 1.5rem;
+}
+
+/* ------------------------------------------------------------
+   4. Term + gloss list
+      A bold term with a smaller gray explanatory line under it.
+      Used for: "Addressing the tension", "Rulebook", "Rule patterns",
+      "Hot prompting", "Cohesion Forces and Tools".
+   ------------------------------------------------------------ */
+
+/* Two live dials, set them on the <ul> when a slide wants different spacing:
+     --term-gloss-gap   term to its own gray line. 0 keeps the pair reading as
+                        one unit, which is the whole point of the shape.
+     --term-item-gap    one term+gloss to the next. This replaces the <br> the
+                        hand-written version used between groups — em, so it
+                        tracks the font size instead of drifting when a slide
+                        scales the list.
+   Everything else (sizes, gray, alignment) is settled here so the markup does
+   not repeat an inline font-size and colour on every line. */
+.term-list {
+	list-style: none !important;
+	padding-left: 0 !important;
+	margin-left: 0 !important;
+	text-align: left;
+}
+
+.term-list > li {
+	margin-bottom: var(--term-item-gap, 1.3em) !important;
+}
+
+.term-list > li:last-child {
+	margin-bottom: 0 !important;
+}
+
+/* Leading, not margin, is what separates a term from its gloss once the margin
+   is 0: at the inherited line-height of 1.3 the term carries 5.5px of half-
+   leading below it and the gloss 4.7px above, so ~10px of air survives however
+   small the margin gets. Tightening both closes it. The gloss keeps a little
+   more than the term because it is the one that wraps to a second line. */
+.term {
+	display: block;
+	font-size: 0.88em;
+	line-height: 1.1;
+}
+
+.term b,
+.term strong {
+	font-weight: 700;
+}
+
+/* The gray sub-line. Block by default; add .gloss-inline to keep it on
+   the same line as the term (the "Rule patterns" variant). */
+.gloss {
+	display: block;
+	font-size: 0.75em;
+	color: var(--tpl-gloss-color);
+	line-height: 1.2;
+	margin-top: var(--term-gloss-gap, 0);
+}
+
+.gloss-inline {
+	display: inline;
+	font-size: 1em;
+	color: var(--tpl-gloss-color);
+}
+
+/* ------------------------------------------------------------
+   5. Cascade — lines that build up an argument one fragment at a time,
+      with optional indented, muted sub-lines.
+      Used for: "Coordination Layers", "My PKM journey",
+      "Coordination modes", "Protocols as platform alternatives".
+   ------------------------------------------------------------ */
+
+.cascade {
+	text-align: left !important;
+}
+
+.cascade > span,
+.cascade > div,
+.cascade .step {
+	display: block;
+	margin-bottom: 0.45em;
+}
+
+.cascade .step-sub {
+	margin-left: 2em;
+	color: var(--tpl-substep-color);
+}
+
+/* ------------------------------------------------------------
+   6. Pull quote + attribution
+   ------------------------------------------------------------ */
+
+/* The quote alone on the slide (T09) is centred by Reveal itself. The moment a
+   heading sits above it the slide needs a .slide-frame to pin that heading to
+   the top — see the block below for what centring then means. Outside a flex
+   parent the flex properties here are simply ignored, so a bare T09 renders
+   exactly as it always did. */
+.pullquote {
+	text-align: left !important;
+	font-style: italic;
+	line-height: 1.35;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 0; /* shrink rather than overflow the slide */
+}
+
+.pullquote mark {
+	background: #f3f0e7;
+	padding: 0 0.15em;
+}
+
+.attribution {
+	text-align: right;
+	font-size: 0.7em;
+	margin-top: 1.2rem;
+}
+
+/* Quote + attribution under a heading. A growing .pullquote centres itself but
+   leaves the attribution behind as a separate flex item, which then sinks to
+   the bottom of the frame, away from the words it credits. Two flex items
+   cannot be centred as a pair without something wrapping them — this is that
+   wrapper. Inside it the quote stops growing and the block centres both. */
+.quote-block {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 0;
+}
+
+.quote-block > .pullquote {
+	flex: 0 0 auto;
+}
+
+/* Centre on the SLIDE, not on what is left over.
+   A quote that merely fills the gap between the heading and the source note is
+   centred in that gap — and the gap is not centred on the slide, because the
+   furniture above and below it is not the same height. A heading is ~107px with
+   its margin, a source note ~40px; the quote then lands (107-40)/2 = 33px below
+   the middle of the slide, which reads as "slightly too low" rather than as an
+   obvious bug.
+   No in-flow rule can fix this: centring an item between two siblings can only
+   ever centre it between those siblings. Taking it out of the flow makes it
+   centre on the frame itself, which IS centred on the slide. Height stays
+   fit-content so the box covers only the quote — an inset:0 overlay would sit
+   on top of the source-note link and swallow the click.
+
+   The same applies to any single block slotted between pinned furniture, so a
+   table gets it too. A markdown table is usually wrapped in a <div> carrying an
+   inline font-size, which is what :has(> table) matches; the bare case is there
+   for a table written straight into the frame. Where :has() is unsupported the
+   table simply keeps the old in-flow position — it sits a little low, which is
+   where it was anyway. */
+.slide-frame > .pullquote,
+.slide-frame > .quote-block,
+.slide-frame > table,
+.slide-frame > div:has(> table) {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: fit-content;
+	max-height: 100%;
+	margin-block: auto;
+}
+
+/* Optional background field behind a quote, the same panel treatment as a code
+   block. Every knob is a custom property so a slide can set them inline
+   without a stylesheet edit — see T09 in the gallery. */
+.quote-panel {
+	background: var(--quote-bg, var(--code-block-background, #eaeaea));
+	border-radius: var(--quote-radius, 4px);
+	padding: var(--quote-pad, 1.2rem 1.6rem);
+	margin: var(--quote-margin, 0);
+}
+
+/* Let the padding define the box: markdown puts a <p> in here and its default
+   margins would otherwise add an uneven band at the top and bottom. */
+.quote-panel > :first-child { margin-top: 0 !important; }
+.quote-panel > :last-child { margin-bottom: 0 !important; }
+
+/* ------------------------------------------------------------
+   7. Split — a text column next to a media column.
+      Put .col-media before .col-text in the markup for media-left.
+      Used for: "Serendipity", "Thinging", "PIQ", "Graph pruning",
+      "Calibration", "Ontology and Reference data", "cautonomous".
+   ------------------------------------------------------------ */
+
+.split {
+	display: flex !important;
+	gap: var(--tpl-gap);
+	align-items: center;
+	text-align: left;
+}
+
+.split > .col-text {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+.split > .col-media {
+	flex: 0 0 40%;
+	max-width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+/* Media column width modifiers */
+.split > .col-media.media-sm { flex-basis: 30%; max-width: 30%; }
+.split > .col-media.media-lg { flex-basis: 50%; max-width: 50%; }
+
+.split > .col-media img {
+	max-width: 100% !important;
+	max-height: 62vh;
+	height: auto;
+	margin: 0 !important; /* override the global .reveal img margin */
+	display: block;
+}
+
+/* Stack two images inside one media column (the "Graph pruning" case) */
+.split > .col-media.media-stack {
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+/* Align the columns to the top instead of centring them */
+.split.split-top {
+	align-items: flex-start;
+}
+
+/* ------------------------------------------------------------
+   8. Columns — two (or more) symmetric text columns.
+      Used for: "Definitions", "When unbalanced", "Two autonomy
+      dimensions", "The problem" (Situation / Resulting in).
+   ------------------------------------------------------------ */
+
+.columns {
+	display: flex !important;
+	gap: var(--tpl-gap);
+	text-align: left;
+}
+
+.columns > .col {
+	flex: 1 1 0;
+	min-width: 0;
+}
+
+/* The bold headword of a definition / contrast column */
+.def-term {
+	display: block;
+	font-size: 1.5em;
+	font-weight: 700;
+	margin-bottom: 0.25em;
+}
+
+/* An image sitting above the headword inside a column */
+.columns > .col > img {
+	margin: 0 0 1.2rem 0 !important;
+	max-height: 30vh;
+}
+
+/* ------------------------------------------------------------
+   9. Figure strip — 2 to 4 captioned figures in a row.
+      Put the .fragment class on the <figure> itself, not on a wrapping
+      <span>: a span is inline and collapses the flex sizing.
+      Used for: "Random, Living, Error", "Penny, Path, and Pair",
+      "Intersection Coordination Modes".
+      .image-row is kept as an alias for the older decks.
+   ------------------------------------------------------------ */
+
+.figure-strip,
+.image-row {
+	display: flex !important;
+	justify-content: center;
+	align-items: flex-end;
+	gap: var(--tpl-gap);
+}
+
+.figure-strip > figure,
+.image-row > figure {
+	flex: 0 1 auto;
+	margin: 0;
+	text-align: center;
+}
+
+.figure-strip img,
+.image-row img {
+	max-height: 34vh;
+	width: auto;
+	margin: 0 auto 0.4rem auto !important;
+}
+
+/* ------------------------------------------------------------
+   10. QR block
+   ------------------------------------------------------------ */
+
+.qr-code {
+	width: 308px !important;
+	max-height: none !important;
+}
+
+/* ------------------------------------------------------------
+   11. Overlay lines — text anchored left / centre / right over a
+       background image, revealed one by one ("The Rules Road").
+   ------------------------------------------------------------ */
+
+.overlay-lines > div,
+.overlay-lines > p {
+	margin-bottom: 2.4rem;
+}
+
+/* ------------------------------------------------------------
+   12. Statement — one or two large lines, no other chrome.
+   ------------------------------------------------------------ */
+
+.statement {
+	font-size: 1.15em;
+	line-height: 1.4;
+}
+
+/* ------------------------------------------------------------
+   13. Social icons (about-me slide, closing slide)
+       Icon sets in /assets: *-gray.svg (minimal) and *-ink.svg (pen).
+   ------------------------------------------------------------ */
+
+.social-icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1.4rem;
+}
+
+.reveal .social-icons a {
+	text-decoration: none;
+	line-height: 0;
+}
+
+.reveal .social-icons img {
+	width: 42px;
+	height: 42px;
+	margin: 0 !important;
+	display: inline-block;
+	opacity: 0.85;
+	transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.reveal .social-icons a:hover img {
+	opacity: 1;
+	transform: translateY(-2px);
+}
+
+/* ============================================================
+   C. Annotations - underline and margin-note system
+   ============================================================ */
+
+/* Underline annotation */
+.annotate-underline {
+  position: relative;
+  display: inline;
+  text-decoration: none;
+  border-bottom: 3px solid transparent;
+  transition: border-color 0.4s ease;
+}
+
+.annotate-underline.visible {
+  border-bottom-color: var(--annotation-color, rgba(136, 136, 136, 0.7));
+}
+
+/* Alternative with pseudo-element (keeping for compatibility) */
+.annotate-underline.use-pseudo::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -3px;
+  height: 3px;
+  background-color: #888;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: 2px;
+}
+
+.annotate-underline.use-pseudo.visible::after {
+  opacity: 0.7;
+}
+
+/* Wavy underline for natural look */
+.annotate-underline.wavy::after {
+  height: 4px;
+  background: none;
+  border-bottom: 3px solid #888;
+  border-radius: 0;
+  transform: skewY(-1deg);
+}
+
+/* Margin notes - positioned absolutely within slide */
+.annotation-note {
+  position: absolute;
+  color: var(--annotation-note-color, #888);
+  /* font-family: 'Architects Daughter', cursive; */
+  /* font-family: 'Great Vibes', cursive; */
+  /* font-family: 'Shadows Into Light', cursive; */
+  font-family: 'Kalam', cursive;
+  font-size: 1.2em;
+  font-weight: 100;
+  /* font-style: italic; */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 10;
+  right: var(--annotation-note-right, -35px);
+  transform: translateY(-50%);
+}
+
+.annotation-note.visible {
+  opacity: 1;
+}
+
+/* Note positioning helpers */
+.annotation-note.right {
+  right: var(--annotation-note-right-right, -150px);
+  width: var(--annotation-note-width, 120px);
+  text-align: left;
+}
+
+.annotation-note.left {
+  left: var(--annotation-note-left, -150px);
+  width: var(--annotation-note-width, 120px);
+  text-align: right;
+}
+
+/* Container for annotations */
+.annotated-content {
+  position: relative;
+}
