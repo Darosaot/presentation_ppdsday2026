@@ -58,10 +58,10 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .reveal .slides > section.lego-slide > .d-flex {
   transform: none;
   margin-left: 220px;
-  max-width: 900px;
+  max-width: 1050px;
 }
 .reveal .slides > section.lego-slide { display: block; }
-.reveal .slides > section.lego-slide > p:first-of-type { margin-top: 205px; }
+.reveal .slides > section.lego-slide > p:first-of-type { margin-top: 170px; }
 .reveal .slides > section#sparql-resources > ul {
   margin-left: 106px !important;
   max-width: 1150px;

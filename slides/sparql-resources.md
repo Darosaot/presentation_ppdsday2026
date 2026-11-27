@@ -13,5 +13,6 @@
 <b>Specific for querying ePO graphs</b><br>
 
 [Assembling graph patterns like Lego blocks](https://kvistgaard.github.io/slides/querying-pp-graphs/ted/)
+<br>
 Workshop slides: [Part 1](https://kvistgaard.github.io/slides/querying-pp-graphs/part1/), [Part 2](https://kvistgaard.github.io/slides/querying-pp-graphs/part2/)
 </ul>
