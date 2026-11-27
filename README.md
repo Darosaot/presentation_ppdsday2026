@@ -21,4 +21,4 @@ The HTML includes Open Graph and Schema.org `PresentationDigitalDocument` metada
 
 ## Live services
 
-The dashboards and tool slides load live PPDS services. The working dashboard requires login; catalogue figures and SPARQL responses depend on the external service. On the Data Explorer slide, Reveal regains keyboard focus after a service click. On other interactive tool slides, click outside an iframe to return arrow and Space navigation to Reveal.
+The dashboards and tool slides load live PPDS services. The working dashboard requires login; catalogue figures and SPARQL responses depend on the external service. On the Data Explorer slide, Reveal regains keyboard focus after a service click. {4R}On the other interactive slides, a click into the page gives it the keyboard, and grey arrows appear at the bottom right. Click one to move on, and the arrow keys and Space work again. Leaving the full-screen map (F10 or Esc) also gives the keyboard back.{/4R}

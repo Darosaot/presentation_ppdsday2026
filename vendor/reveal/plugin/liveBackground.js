@@ -28,10 +28,14 @@
  * the deck (or a presenter's clicker) stops moving. So the deck takes the
  * keyboard back whenever a page has it while its slide is not showing. For a
  * page that grabs the cursor on load, add data-background-grabs-focus, and
- * the deck also takes back the first focus after each load. For a page whose
- * links should remain clickable while Reveal owns the keyboard, add
- * data-background-deck-keys. This returns focus shortly after each click;
- * other interactive pages keep keyboard focus for typing.
+ * the deck also takes back the first focus after each load. A click into a
+ * page on its own slide keeps the keyboard there, for typing; the on-screen
+ * arrow, or any slide change, gives it back to the deck. For a page that is
+ * clicked but never typed in, add data-background-deck-keys, and the deck
+ * takes the keyboard back just after each click, once the page has handled
+ * it (a link it follows included). A page that goes full screen, as the PPDS
+ * editor's results do with F10, gives the keyboard back to the deck when it
+ * leaves full screen (F10 again, or Esc).
  *
  * A page that refuses to be framed (X-Frame-Options or a CSP frame-ancestors
  * rule) stays blank; x.com is one. The page is live, so the room needs the
@@ -104,6 +108,19 @@ const LiveBackground = (() => {
 		reveal.on("slidechanged", () => {
 			const frame = document.activeElement;
 			if (ours(frame) && !showing(frame)) reclaim();
+		});
+
+		// A frame in full screen is this document's fullscreenElement. Watch for
+		// it to leave, rather than for the full screen to end: the deck itself
+		// may be in full screen underneath.
+		let fullFrame = null;
+		document.addEventListener("fullscreenchange", () => {
+			const el = document.fullscreenElement;
+			if (ours(el)) fullFrame = el;
+			else if (fullFrame) {
+				fullFrame = null;
+				if (ours(document.activeElement)) reclaim();
+			}
 		});
 	}
 
