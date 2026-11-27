@@ -1,3 +1,9 @@
+// Reveal's named slide routes omit a trailing slash. Accept shared links that
+// include one (such as #/data-explorer/) before it reads the initial URL.
+if (location.hash.startsWith('#/') && location.hash.length > 2 && /\/$/.test(location.hash)) {
+  history.replaceState(null, '', location.pathname + location.search + location.hash.replace(/\/+$/, ''));
+}
+
 Reveal.initialize({
   hash: true, fragmentInURL: true, history: true,
   controls: false, progress: false, slideNumber: false,

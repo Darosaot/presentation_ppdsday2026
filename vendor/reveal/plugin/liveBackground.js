@@ -28,9 +28,10 @@
  * the deck (or a presenter's clicker) stops moving. So the deck takes the
  * keyboard back whenever a page has it while its slide is not showing. For a
  * page that grabs the cursor on load, add data-background-grabs-focus, and
- * the deck also takes back the first focus after each load. A click into a
- * page on its own slide keeps the keyboard there; the on-screen arrow, or
- * any slide change, gives it back to the deck.
+ * the deck also takes back the first focus after each load. For a page whose
+ * links should remain clickable while Reveal owns the keyboard, add
+ * data-background-deck-keys. This returns focus shortly after each click;
+ * other interactive pages keep keyboard focus for typing.
  *
  * A page that refuses to be framed (X-Frame-Options or a CSP frame-ancestors
  * rule) stays blank; x.com is one. The page is live, so the room needs the
@@ -72,6 +73,7 @@ const LiveBackground = (() => {
 		const settled = new WeakSet(); // frames whose on-load grab has been undone
 		const ours = (el) => el?.tagName === "IFRAME" && el.closest(".backgrounds .slide-background");
 		const grabsFocus = (frame) => frame.closest(".slide-background.live-grabs-focus");
+		const deckKeys = (frame) => frame.closest(".slide-background.live-deck-keys");
 		const showing = (frame) => frame.closest(".slide-background").classList.contains("present");
 		const reclaim = () => {
 			deck.tabIndex = -1;
@@ -90,6 +92,12 @@ const LiveBackground = (() => {
 					settled.add(frame);
 					reclaim();
 				} else if (!showing(frame)) reclaim();
+				else if (deckKeys(frame)) {
+					// Let the iframe finish its click (including link navigation) first.
+					setTimeout(() => {
+						if (document.activeElement === frame && showing(frame)) reclaim();
+					}, 150);
+				}
 			})
 		);
 
@@ -119,6 +127,7 @@ const LiveBackground = (() => {
 						}
 					}
 					if (slide.hasAttribute("data-background-grabs-focus")) classes.push("live-grabs-focus");
+					if (slide.hasAttribute("data-background-deck-keys")) classes.push("live-deck-keys");
 					if (classes.length) marks.push([slide, classes]);
 				});
 

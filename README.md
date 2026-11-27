@@ -1,6 +1,6 @@
 # PPDS Day 2026 — New possibilities
 
-The [presentation](PPDS_New_Possibilities_v3.html) is a 19-slide Reveal.js deck covering the PPDS data flow, dashboards, exploration tools, SPARQL, and AI. The repository's [landing page](index.html) opens this version. The former v2 URL redirects here and maps its old slide links; the previous source remains in Git history.
+The [published presentation](https://darosaot.github.io/presentation_ppdsday2026/) is a 19-slide Reveal.js deck covering the PPDS data flow, dashboards, exploration tools, SPARQL, and AI. The former v2 URL redirects here and maps its old slide links; the previous source remains in Git history.
 
 ## Present and test
 
@@ -21,4 +21,4 @@ The HTML includes Open Graph and Schema.org `PresentationDigitalDocument` metada
 
 ## Live services
 
-The dashboards and tool slides load live PPDS services. The working dashboard requires login; catalogue figures and SPARQL responses depend on the external service. Clicking inside a cross-origin iframe gives it keyboard focus. Click outside the iframe to return arrow and Space navigation to Reveal.
+The dashboards and tool slides load live PPDS services. The working dashboard requires login; catalogue figures and SPARQL responses depend on the external service. On the Data Explorer slide, Reveal regains keyboard focus after a service click. On other interactive tool slides, click outside an iframe to return arrow and Space navigation to Reveal.
