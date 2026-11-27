@@ -106,3 +106,6 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; }
 .reveal .slides > section .notes { display: none; }
 .reveal .slides > section .page-no,
 .reveal .slides > section .ai-page { display: none !important; }
+
+/* Reveal's arrows show only while a framed page has the keyboard (scripts/presentation.js). */
+.reveal:not(.page-has-keys) .controls { display: none !important; }
